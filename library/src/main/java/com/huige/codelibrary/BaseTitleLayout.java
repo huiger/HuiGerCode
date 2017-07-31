@@ -13,13 +13,14 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * Created by <lzh> on 2017/7/28.
  */
 
-public class BaseTitleLayout extends View{
+public class BaseTitleLayout extends View {
     private int layoutHeight;
     private int layoutWidth;
 
@@ -31,10 +32,13 @@ public class BaseTitleLayout extends View{
     private int iconSize = dp2px(25);
     private int leftImg = R.drawable.to_left;
     private int textSize = dp2px(12);
-    private String leftText;
-    private String contentText;
-    private int rightImg1, rightImg2;
-    private String rightText;
+    private String leftText = "";
+    private String contentText = "";
+    private int rightImg1 = -1, rightImg2 = -1;
+    private String rightText = "";
+    private Bitmap leftBitmap;
+
+    private TitleLayoutClickListener listener;
 
     public BaseTitleLayout(Context context) {
         this(context, null);
@@ -48,7 +52,6 @@ public class BaseTitleLayout extends View{
         super(context, attrs, defStyleAttr);
 
         int textColor = Color.parseColor("#020202");
-
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseTitleLayout);
         for (int i = 0; i < typedArray.length(); i++) {
@@ -106,7 +109,7 @@ public class BaseTitleLayout extends View{
         Rect rect = new Rect();
 
 
-        Bitmap leftBitmap = BitmapFactory.decodeResource(getResources(), leftImg);
+        leftBitmap = BitmapFactory.decodeResource(getResources(), leftImg);
         rect.top = layoutHeight / 2 - (iconSize + dp2px(5)) / 2;
         rect.bottom = layoutHeight / 2 + (iconSize + dp2px(5)) / 2;
         rect.left = paddingLeft;
@@ -204,6 +207,31 @@ public class BaseTitleLayout extends View{
         setMeasuredDimension(layoutWidth, layoutHeight);
     }
 
+    public void setOnTitleClickListener(TitleLayoutClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();
+
+        if (event.getAction() == MotionEvent.ACTION_UP && listener != null) {
+            if (x <= iconSize + mPaint.measureText(leftText)) {
+                listener.onLeftClickListener();
+            } else if (x > layoutWidth - iconSize - paddingRight) {
+                if (rightImg1 != -1) {
+                    listener.onRightImg1ClickListener();
+                } else if (!TextUtils.isEmpty(rightText)) {
+                    listener.onRightTextClickListener();
+                }
+            } else if (x < layoutWidth - iconSize - paddingRight && x > layoutWidth - 2 * iconSize - paddingRight) {
+                if(rightImg2 != -1) {
+                    listener.onRightImg2ClickListener();
+                }
+            }
+        }
+        return true;
+    }
 
     private int dp2px(float dp) {
         float scale = getResources().getDisplayMetrics().density;
