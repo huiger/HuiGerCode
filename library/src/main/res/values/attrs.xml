@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="BaseTitleLayout">
-        <attr name="titleTextColor" format="color"/>
-        <attr name="titleTextSize" format="dimension"/>
-        <attr name="titleIconSize" format="dimension"/>
-        <attr name="titleLeftImg" format="reference"/>
-        <attr name="titleLeftText1" format="string"/>
-        <attr name="titleContentText" format="string"/>
-        <attr name="titleRightImg1" format="reference"/>
-        <attr name="titleRightImg2" format="reference"/>
-        <attr name="titleRightText" format="string"/>
+    <declare-styleable name="LikeView">
+        <attr name="likeViewCirRadius" format="dimension"/>
+        <attr name="likeViewCirTime" format="integer"/>
+        <attr name="likeViewDefaultColor" format="color"/>
     </declare-styleable>
 </resources>

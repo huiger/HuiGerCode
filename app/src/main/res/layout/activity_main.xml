@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/activity_main"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context="com.huige.huigercode.MainActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <com.huige.codelibrary.BaseTitleLayout
-        android:id="@+id/titleLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleContentText="测试一下"
-        android:background="#000"
-        app:titleRightImg1="@mipmap/my_collect_icon"
-        app:titleTextColor="#fff"
-        app:titleRightImg2="@mipmap/download"/>
 
-</RelativeLayout>
+    <com.huige.library.likeview.LikeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <com.huige.library.likeview.LikeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
+
+    <com.huige.library.likeview.LikeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:likeViewCirRadius="15dp"/>
+
+</LinearLayout>
