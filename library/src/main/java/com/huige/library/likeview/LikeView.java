@@ -66,7 +66,7 @@ public class LikeView extends View {
     /**
      * 4.圆环减消失、心形放大、周围环绕十四圆点
      */
-    private static final int RING_DOT__HEART_VIEW = 3;
+    private static final int RING_DOT_HEART_VIEW = 3;
     /**
      * 5.环绕的十四圆点向外移动并缩小、透明度渐变、渐隐
      */
@@ -74,6 +74,7 @@ public class LikeView extends View {
 
     private float mCenterX;
     private float mCenterY;
+    private Canvas mCanvas;
     private Paint mPaint;
     private float mOffset;
     private OnClickListener mListener;
@@ -134,23 +135,24 @@ public class LikeView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.translate(mCenterX, mCenterY);   // 使坐标移至中心
+        mCanvas = canvas;
+        mCanvas.translate(mCenterX, mCenterY);   // 使坐标移至中心
 
         switch (mCurrentState) {
             case HEART_VIEW:
-                drawHeart(canvas, mCurrentRadius, mCurrentColor);
+                drawHeart(mCurrentRadius, mCurrentColor);
                 break;
             case CIRCLE_VIEW:
-                drawCirce(canvas, mCurrentRadius, mCurrentColor);
+                drawCirce(mCurrentRadius, mCurrentColor);
                 break;
             case RING_VIEW:
-                drawRing(canvas, mCurrentRadius, mCurrentColor, mCurrentPercent);
+                drawRing(mCurrentRadius, mCurrentColor, mCurrentPercent);
                 break;
-            case RING_DOT__HEART_VIEW:
-                drawDotWithRing(canvas, mCurrentRadius, mCurrentColor);
+            case RING_DOT_HEART_VIEW:
+                drawDotWithRing(mCurrentRadius, mCurrentColor);
                 break;
             case DOT_HEART_VIEW:
-                drawDot(canvas, mCurrentRadius, mCurrentColor);
+                drawDot(mCurrentRadius, mCurrentColor);
                 break;
             default:
 
@@ -161,11 +163,10 @@ public class LikeView extends View {
     /**
      * 绘制圆点、心形
      *
-     * @param canvas
      * @param radius
      * @param color
      */
-    private void drawDot(Canvas canvas, int radius, int color) {
+    private void drawDot(int radius, int color) {
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.FILL);
 
@@ -189,16 +190,16 @@ public class LikeView extends View {
             mCurrentRadius = (int) (mCurrentRadius - dotR / 16);
 
         }
-        drawHeart(canvas, mCurrentRadius, CLICKED_CLOLOR);
+        drawHeart(mCurrentRadius, CLICKED_CLOLOR);
 
         mPaint.setAlpha((int) (255 * (1 - mCurrentPercent)));//圆点逐渐透明
         dotRS = (float) (dotR * (1 - mCurrentPercent));
         dotRL = (float) (dotR * (1 - mCurrentPercent) * 4) > dotR ? dotR : (float) (dotR * (1 - mCurrentPercent) * 3);
         for (int i = 0; i < 7; i++) {
             mPaint.setColor(dotColors[i]);
-            canvas.drawCircle((float) (rDotS * Math.sin(angleA)), (float) (rDotS * Math.cos(angleA)), dotRS, mPaint);
+            mCanvas.drawCircle((float) (rDotS * Math.sin(angleA)), (float) (rDotS * Math.cos(angleA)), dotRS, mPaint);
             angleA += 2 * Math.PI / 7;
-            canvas.drawCircle((float) (rDotL * Math.sin(angleB)), (float) (rDotL * Math.cos(angleB)), dotRL, mPaint);
+            mCanvas.drawCircle((float) (rDotL * Math.sin(angleB)), (float) (rDotL * Math.cos(angleB)), dotRL, mPaint);
             angleB += 2 * Math.PI / 7;
         }
     }
@@ -206,18 +207,17 @@ public class LikeView extends View {
     /**
      * 绘制圆点、圆环、心形
      *
-     * @param canvas
      * @param radius
      * @param color
      */
-    private void drawDotWithRing(Canvas canvas, int radius, int color) {
+    private void drawDotWithRing(int radius, int color) {
         mPaint.setColor(color);
         mPaint.setAntiAlias(true);
 
         mPaint.setStyle(Paint.Style.STROKE);
         if (mCurrentPercent <= 1) {
             RectF rectF = new RectF(-radius, -radius, radius, radius);
-            canvas.drawArc(rectF, 0, 360, false, mPaint);
+            mCanvas.drawArc(rectF, 0, 360, false, mPaint);
         }
         mCurrentPercent = (1f - mCurrentPercent > 1f ? 1f : 1f - mCurrentPercent) * 0.2f;//用于计算圆环宽度，最小0，与动画进度负相关
         mPaint.setStrokeWidth(2 * mRadius * mCurrentPercent);
@@ -233,55 +233,52 @@ public class LikeView extends View {
 
         mPaint.setStyle(Paint.Style.FILL);
         for (int i = 0; i < 7; i++) {
-            canvas.drawCircle((float) (rDotS * Math.sin(angleA)), (float) (rDotS * Math.cos(angleA)), dotR, mPaint);
+            mCanvas.drawCircle((float) (rDotS * Math.sin(angleA)), (float) (rDotS * Math.cos(angleA)), dotR, mPaint);
             angleA += 2 * Math.PI / 7;
-            canvas.drawCircle((float) (rDotL * Math.sin(angleB)), (float) (rDotL * Math.cos(angleB)), dotR, mPaint);
+            mCanvas.drawCircle((float) (rDotL * Math.sin(angleB)), (float) (rDotL * Math.cos(angleB)), dotR, mPaint);
             angleB += 2 * Math.PI / 7;
         }
         mCurrentRadius = (int) (mRadius / 3 + offL * 4);
-        drawHeart(canvas, mCurrentRadius, CLICKED_CLOLOR);
+        drawHeart(mCurrentRadius, CLICKED_CLOLOR);
 
     }
 
     /**
      * 绘制圆环
      *
-     * @param canvas
      * @param radius
      * @param color
      * @param percent
      */
-    private void drawRing(Canvas canvas, int radius, int color, float percent) {
+    private void drawRing(int radius, int color, float percent) {
         mPaint.setColor(color);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(2 * mRadius * percent);
         RectF rectF = new RectF(-radius, -radius, radius, radius);
-        canvas.drawArc(rectF, 0, 360, false, mPaint);
+        mCanvas.drawArc(rectF, 0, 360, false, mPaint);
     }
 
     /**
      * 绘制圆
      *
-     * @param canvas
      * @param radius
      * @param color
      */
-    private void drawCirce(Canvas canvas, int radius, int color) {
+    private void drawCirce(int radius, int color) {
         mPaint.setColor(color);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(0f, 0f, radius, mPaint);
+        mCanvas.drawCircle(0f, 0f, radius, mPaint);
     }
 
     /**
      * 绘制心形
      *
-     * @param canvas
      * @param radius
      * @param color
      */
-    private void drawHeart(Canvas canvas, int radius, int color) {
+    private void drawHeart(int radius, int color) {
         initControlPoint(radius);
         mPaint.setColor(color);
         mPaint.setAntiAlias(true);
@@ -293,7 +290,7 @@ public class LikeView extends View {
         path.cubicTo(rPointC.x, rPointC.y, bPointC.x, bPointC.y, bPointB.x, bPointB.y);
         path.cubicTo(bPointA.x, bPointA.y, lPointC.x, lPointC.y, lPointB.x, lPointB.y);
         path.cubicTo(lPointA.x, lPointA.y, tPointA.x, tPointA.y, tPointB.x, tPointB.y);
-        canvas.drawPath(path, mPaint);
+        mCanvas.drawPath(path, mPaint);
 
     }
 
@@ -327,22 +324,19 @@ public class LikeView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
         int y = (int) event.getY();
-        if(event.getAction() == MotionEvent.ACTION_UP) {
-            if(x + getLeft() < getRight() && y+getTop() < getBottom()) {
-                if(state) {
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            if (x + getLeft() < getRight() && y + getTop() < getBottom()) {
+                if (state) {
                     deselectLike();
-                }else{
+                } else {
                     startViewMotion();
                 }
 
-                if(mListener != null) {
+                if (mListener != null) {
                     mListener.onClick(this);
                 }
             }
-
         }
-
-
         return true;
     }
 
@@ -396,7 +390,7 @@ public class LikeView extends View {
                     float percent = calcPercent(340f, 480f, animatedValue);//内环半径增大直至消亡
                     mCurrentPercent = percent;
                     mCurrentRadius = (int) (2 * mRadius);//外环半径不再改变
-                    mCurrentState = RING_DOT__HEART_VIEW;
+                    mCurrentState = RING_DOT_HEART_VIEW;
                     invalidate();
                 } else if (animatedValue <= 1200) {
                     float percent = calcPercent(480f, 1200f, animatedValue);
@@ -457,7 +451,16 @@ public class LikeView extends View {
         invalidate();
     }
 
-    public boolean getStatus(){
+    /**
+     * 设置选中
+     */
+    public void setSelectLike() {
+        mCurrentColor = 0xffe53a42;
+        state = true;
+        invalidate();
+    }
+
+    public boolean getStatus() {
         return this.state;
     }
 
@@ -484,9 +487,9 @@ public class LikeView extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (animatorTime!=null)
+        if (animatorTime != null)
             animatorTime.removeAllListeners();
-        if (animatorArgb!=null)
+        if (animatorArgb != null)
             animatorArgb.removeAllListeners();
     }
 
