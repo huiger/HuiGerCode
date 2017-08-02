@@ -455,7 +455,7 @@ public class LikeView extends View {
      * 设置选中
      */
     public void setSelectLike() {
-        mCurrentColor = 0xffe53a42;
+        mCurrentColor = CLICKED_CLOLOR;
         state = true;
         invalidate();
     }
