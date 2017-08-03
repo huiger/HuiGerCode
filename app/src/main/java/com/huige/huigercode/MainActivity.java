@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("msg", "MainActivity -> 点赞状态：" + likeView.getStatus());
+
             }
         });
     }
