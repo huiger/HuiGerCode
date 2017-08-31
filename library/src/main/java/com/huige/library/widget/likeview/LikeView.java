@@ -1,4 +1,4 @@
-package com.huige.library.likeview;
+package com.huige.library.widget.likeview;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

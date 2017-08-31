@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.huige.library.likeview.LikeView;
+import com.huige.library.widget.likeview.LikeView;
 
 public class MainActivity extends AppCompatActivity {
 

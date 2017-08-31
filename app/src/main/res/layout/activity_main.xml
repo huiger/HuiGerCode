@@ -11,18 +11,18 @@
 
 
 
-    <com.huige.library.likeview.LikeView
+    <com.huige.library.widget.likeview.LikeView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
-    <com.huige.library.likeview.LikeView
+    <com.huige.library.widget.likeview.LikeView
         android:id="@+id/likeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"/>
 
-    <com.huige.library.likeview.LikeView
+    <com.huige.library.widget.likeview.LikeView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
