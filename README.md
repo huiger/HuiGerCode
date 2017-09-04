@@ -5,5 +5,5 @@
 
 - ## [LikeView(仿Twitter点赞)](./library/src/main/java/com/huige/library/likeview/LikeView.java)
  
-- ## [TabScrollView(TabLayout指示器可长可短)](./library/src/main/java/com/huige/library/widget/TabLayout/TabScrollView.java) 
+- ## [TabScrollView(TabLayout指示器可长可短)](https://github.com/huiger/HuiGerCode/blob/master/library/src/main/java/com/huige/library/widget/TabLayout/TabScrollView.java) 
 > 待优化（2017.9.4）
