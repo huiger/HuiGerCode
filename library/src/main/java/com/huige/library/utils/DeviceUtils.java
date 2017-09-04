@@ -1,6 +1,8 @@
 package com.huige.library.utils;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
@@ -59,14 +61,48 @@ public class DeviceUtils {
         return metrics.heightPixels;
     }
 
+    /**
+     * dp2px
+     * @param ctx
+     * @param dp
+     * @return
+     */
     public static int dp2px(Context ctx, float dp) {
         float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
 
+    /**
+     * px2dp
+     * @param ctx
+     * @param px
+     * @return
+     */
     public static int px2dp(Context ctx, float px){
         float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (px / scale + 0.5f);
     }
+
+    /**
+     * 返回当前程序版本名
+     *
+     * @return 版本号
+     */
+    public static String getAppVersionName(Context ctx) {
+        String versionName = "";
+        try {
+            PackageManager pm = ctx.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(ctx.getPackageName(), 0);
+            versionName = pi.versionName;
+            if (versionName == null || versionName.length() <= 0) {
+                return "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return versionName;
+    }
+
+
 
 }

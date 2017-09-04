@@ -1,11 +1,9 @@
 package com.huige.huigercode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-
-import com.huige.library.widget.likeview.LikeView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,14 +13,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final LikeView likeView = (LikeView) findViewById(R.id.likeView);
-        likeView.setSelectLike();
-        likeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("msg", "MainActivity -> 点赞状态：" + likeView.getStatus());
 
-            }
-        });
     }
+
+    public void onClick(View view){
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.tv_to_likeView:
+                intent = new Intent(this, LikeActivity.class);
+                break;
+            case R.id.tv_to_tabView:
+                intent = new Intent(this, TabViewActivity.class);
+                break;
+            default:
+
+        }
+
+        if(intent != null) {
+            startActivity(intent);
+        }
+    }
+
 }
