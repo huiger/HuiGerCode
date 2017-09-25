@@ -19,7 +19,7 @@ public class DeviceUtils {
      * @param ctx
      * @return
      */
-    public static int[] getScreenWH(Context ctx){
+    public static int[] getScreenWH(Context ctx) {
         int[] wh = new int[3];
         try {
             WindowManager manager = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
@@ -28,7 +28,7 @@ public class DeviceUtils {
             wh[0] = dm.widthPixels; // 屏幕宽(像素)
             wh[1] = dm.heightPixels;    // 屏幕高(像素)
             wh[2] = dm.densityDpi;  // 屏幕密度(120/160/240)
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return wh;
@@ -63,6 +63,7 @@ public class DeviceUtils {
 
     /**
      * dp2px
+     *
      * @param ctx
      * @param dp
      * @return
@@ -74,13 +75,26 @@ public class DeviceUtils {
 
     /**
      * px2dp
+     *
      * @param ctx
      * @param px
      * @return
      */
-    public static int px2dp(Context ctx, float px){
+    public static int px2dp(Context ctx, float px) {
         float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (px / scale + 0.5f);
+    }
+
+    /**
+     * sp2dp
+     *
+     * @param ctx
+     * @param sp
+     * @return
+     */
+    public static int sp2px(Context ctx, float sp) {
+        float scale = ctx.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (sp * scale + 0.5f);
     }
 
     /**
@@ -102,7 +116,6 @@ public class DeviceUtils {
         }
         return versionName;
     }
-
 
 
 }

@@ -49,22 +49,16 @@ public class TabOnPageChangeListener implements ViewPager.OnPageChangeListener {
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//        Log.d("msg", "TabOnPageChangeListener -> onPageScrolled: " + lastPosition + "\t\t\t" + position);
         if (lastPosition > position) {
-//            Log.d("msg", "TabOnPageChangeListener -> onPageScrolled: " + "1\t" + ((position + positionOffset) * everyLength + dis) + "\t" + ((lastPosition + 1) * everyLength - dis));
-//            tabLineView.updateLineStatus((position + positionOffset) * everyLength + dis + fixLeftDis, (lastPosition + 1) * everyLength - dis);
-            tabLineView.updateLineStatus((position + positionOffset) * everyLength + dis + paddingLeft, paddingLeft + (lastPosition + 1) * everyLength + dis);
-//            Log.d("msg", "TabOnPageChangeListener -> onPageScrolled: " + "paddingLeft="+paddingLeft+"\tlastPosition="+lastPosition+"\teveryLength="+everyLength+"\tdis="+dis);
+            tabLineView.updateLineStatus((position + positionOffset) * everyLength + dis + paddingLeft,
+                    paddingLeft + (position + 1) * everyLength + dis + lineWidth);
 
         } else {
             if (positionOffset > 0.5f) {
                 positionOffset = 0.5f;
             }
-
-//            Log.d("msg", "TabOnPageChangeListener -> onPageScrolled: " + "2\t" + (lastPosition * everyLength + dis) + "\t" + ((position + positionOffset * 2) * everyLength + dis + lineWidth));
-//            tabLineView.updateLineStatus(lastPosition * everyLength + dis + fixLeftDis, (position + positionOffset * 2) * everyLength + dis + lineWidth);
-//            tabLineView.updateLineStatus(lastPosition * everyLength + dis , (position + positionOffset * 2) * everyLength + dis + lineWidth);
-            tabLineView.updateLineStatus(lastPosition * everyLength + dis + paddingLeft, paddingLeft + (position + positionOffset * 2) * everyLength + dis + lineWidth);
+            tabLineView.updateLineStatus(lastPosition * everyLength + dis + paddingLeft,
+                    paddingLeft + (position + positionOffset * 2) * everyLength + dis + lineWidth);
         }
     }
 

@@ -42,8 +42,8 @@ public class TabScrollView extends HorizontalScrollView {
     private int screenWidth;
     private int margins;
 
-    private OnTabTitleClickListener onTabTitleClickListener;
 
+    private OnTabTitleClickListener onTabTitleClickListener;
 
     public TabScrollView(Context context) {
         this(context, null);
@@ -59,7 +59,7 @@ public class TabScrollView extends HorizontalScrollView {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TabScrollView, defStyleAttr
                 , 0);
         titleSize = typedArray.getDimensionPixelSize(R.styleable.TabScrollView_tabTitleSize,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 8, getResources().getDisplayMetrics()));
         titleSelColor = typedArray.getColor(R.styleable.TabScrollView_tabTitleSelColor, Color.BLACK);
         titleUnSelColor = typedArray.getColor(R.styleable.TabScrollView_tabTitleUnSelColor, Color.GRAY);
         tabTitlePadding = (int) typedArray.getDimension(R.styleable.TabScrollView_tabTitlePadding, 10);
@@ -93,9 +93,11 @@ public class TabScrollView extends HorizontalScrollView {
 
     private void initView() {
 
-
+        // parent
         LinearLayout contentLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
         contentLayout.setOrientation(LinearLayout.VERTICAL);
         layoutParams.setMargins((screenWidth - titlesLength) / 2, 0, 0, 0);
         contentLayout.setLayoutParams(layoutParams);
@@ -105,13 +107,14 @@ public class TabScrollView extends HorizontalScrollView {
         titleLayout.setOrientation(LinearLayout.HORIZONTAL);
         titleLayout.setLayoutParams(layoutParams);
 
-        LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
+        // textView
+        LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         textViewParams.setMargins(margins, 0, margins, 0);
         for (int i = 0; i < titles.size(); i++) {
             TextView tv = new TextView(getContext());
             tv.setText(titles.get(i));
-            tv.setTextSize(titleSize);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_PX,titleSize);
             tv.setTextColor(titleUnSelColor);
             tv.setLayoutParams(textViewParams);
             tv.setOnClickListener(onClickListener);
@@ -122,9 +125,11 @@ public class TabScrollView extends HorizontalScrollView {
 
         contentLayout.addView(titleLayout);
 
+        // lineView
         if (tabTitleLineVisible) {
             tabLineView = new TabLineView(getContext());
-            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             tabLineView.setLayoutParams(lp);
             tabLineView.setLineColor(tabTitleLineBgColor);
             contentLayout.addView(tabLineView);
@@ -162,10 +167,10 @@ public class TabScrollView extends HorizontalScrollView {
             TextView tv = textViews.get(i);
             if (i == defaultIndex) {
                 tv.setTextColor(titleSelColor);
-                tv.setTextSize((float) (titleSize * 1.2));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) (titleSize * 1.2));
             } else {
                 tv.setTextColor(titleUnSelColor);
-                tv.setTextSize(titleSize);
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
             }
         }
     }
@@ -174,7 +179,7 @@ public class TabScrollView extends HorizontalScrollView {
 
         float countLength = 0;
         TextView textView = new TextView(getContext());
-        textView.setTextSize(titleSize);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
         TextPaint textPaint = textView.getPaint();
 
         for (int i = 0; i < titles.size(); i++) {
