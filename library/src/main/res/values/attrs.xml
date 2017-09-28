@@ -10,7 +10,8 @@
         <attr name="tabTitleSize" format="dimension"/>
         <attr name="tabTitleSelColor" format="color"/>
         <attr name="tabTitleUnSelColor" format="color"/>
-        <attr name="tabTitlePadding" format="dimension"/>
+        <attr name="tabTitlePaddingLR" format="dimension"/>
+        <attr name="tabTitlePaddingAsLine" format="dimension"/>
         <attr name="tabTitleLineVisible" format="enum">
             <enum name="GONE" value="-1"/>
             <enum name="VISIBLE" value="1"/>

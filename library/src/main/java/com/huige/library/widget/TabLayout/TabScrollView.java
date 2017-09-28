@@ -35,7 +35,8 @@ public class TabScrollView extends HorizontalScrollView {
     private int titleSelColor;
     private int titleUnSelColor;
     private int titlesLength;
-    private int tabTitlePadding;
+    private int tabTitlePaddingLR;
+    private int tabTitlePaddingAsLine;
     private boolean tabTitleLineVisible;
     private int tabTitleLineBgColor;
     private TabLineView tabLineView;
@@ -62,7 +63,8 @@ public class TabScrollView extends HorizontalScrollView {
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 8, getResources().getDisplayMetrics()));
         titleSelColor = typedArray.getColor(R.styleable.TabScrollView_tabTitleSelColor, Color.BLACK);
         titleUnSelColor = typedArray.getColor(R.styleable.TabScrollView_tabTitleUnSelColor, Color.GRAY);
-        tabTitlePadding = (int) typedArray.getDimension(R.styleable.TabScrollView_tabTitlePadding, 10);
+        tabTitlePaddingLR = (int) typedArray.getDimension(R.styleable.TabScrollView_tabTitlePaddingLR, 10);
+        tabTitlePaddingAsLine = (int) typedArray.getDimension(R.styleable.TabScrollView_tabTitlePaddingAsLine, 5);
         tabTitleLineVisible = typedArray.getInt(R.styleable.TabScrollView_tabTitleLineVisible, VISIBLE) == 1;
         tabTitleLineBgColor = typedArray.getColor(R.styleable.TabScrollView_tabTitleLineBgColor, -1);
         typedArray.recycle();
@@ -132,6 +134,7 @@ public class TabScrollView extends HorizontalScrollView {
             tabLineView = new TabLineView(getContext());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp.topMargin = tabTitlePaddingAsLine;
             tabLineView.setLayoutParams(lp);
             tabLineView.setLineColor(tabTitleLineBgColor);
             contentLayout.addView(tabLineView);
@@ -185,15 +188,15 @@ public class TabScrollView extends HorizontalScrollView {
         TextPaint textPaint = textView.getPaint();
 
         for (int i = 0; i < titles.size(); i++) {
-            countLength += textPaint.measureText(titles.get(i)) + tabTitlePadding * 2;
+            countLength += textPaint.measureText(titles.get(i)) + tabTitlePaddingLR * 2;
         }
 
         if (countLength > screenWidth) { //
             titlesLength = screenWidth;
-            return tabTitlePadding;
+            return tabTitlePaddingLR;
         } else {
             titlesLength = (int) countLength;
-            return tabTitlePadding;
+            return tabTitlePaddingLR;
         }
     }
 

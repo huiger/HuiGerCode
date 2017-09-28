@@ -3,6 +3,28 @@
 一些自定义View
 
 
-- ## [LikeView(仿Twitter点赞)](/library/src/main/java/com/huige/library/widget/likeview/LikeView.java)
- 
-- ## [TabScrollView(TabLayout指示器可长可短)](/library/src/main/java/com/huige/library/widget/TabLayout) 
+## [LikeView(仿Twitter点赞)](/library/src/main/java/com/huige/library/widget/likeview/LikeView.java)
+- 仿Twitter点赞
+- 支持默认选中，和不选中状态
+- 支持设置动画时长、View大小、默认颜色
+
+![likeView](/img/LikeView.gif)
+
+
+
+## [TabScrollView(TabLayout指示器可长可短)](/library/src/main/java/com/huige/library/widget/TabLayout)
+- 仿新浪首页TAB
+- 使用方便，和官方TabLayout相似，一行代码实现效果
+
+### 具体属性
+
+Name | Format | 注释 |
+--- | --- | ---
+tabTitleSize | dimension | 字体大小
+tabTitleUnSelColor | color | 选中字体颜色
+tabTitlePaddingLR | dimension | title左右间距
+tabTitleAsLine | dimension | title与指示器间距
+tabTitleLineVisible | enum | 指示器显示状态
+tabTitleLineBgColor | color | 指示器颜色
+
+![TabScrollView](/img/TabScrollView.gif)
