@@ -2,8 +2,6 @@
 
 一些自定义View
 
-[TOC]
-
 
 
 ## [LikeView(仿Twitter点赞)](/library/src/main/java/com/huige/library/widget/likeview/LikeView.java)
