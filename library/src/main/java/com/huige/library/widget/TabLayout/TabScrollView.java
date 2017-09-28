@@ -84,11 +84,13 @@ public class TabScrollView extends HorizontalScrollView {
         initView();
 
         setDefaultIndex(defaultIndex);
-
+        viewPager.setCurrentItem(defaultIndex);
 
         if (tabTitleLineVisible)
             viewPager.addOnPageChangeListener(new TabOnPageChangeListener(getContext(), this, tabLineView,
                     viewPager, textViews, titlesLength, defaultIndex, margins));
+
+
     }
 
     private void initView() {

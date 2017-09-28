@@ -40,6 +40,7 @@ public class TabOnPageChangeListener implements ViewPager.OnPageChangeListener {
 
         TextView textView = titleViews.get(defaultIndex);
         lineWidth = (int) textView.getPaint().measureText(textView.getText().toString());
+        this.lastPosition = defaultIndex;
 
         everyLength = titlesLength / titleViews.size();
         dis = margin;

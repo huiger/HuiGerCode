@@ -39,8 +39,6 @@ public class TabViewActivity extends AppCompatActivity implements OnTabTitleClic
         titles.add("动态");
         titles.add("最新");
 
-
-        tabScrollView.initData(titles, viewPager, 0);
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -57,8 +55,9 @@ public class TabViewActivity extends AppCompatActivity implements OnTabTitleClic
 //                super.destroyItem(container, position, object);
             }
         });
-
+        tabScrollView.initData(titles, viewPager, 1);
         tabScrollView.setOnTabTitleClickListener(this);
+
     }
 
     private void findView() {
