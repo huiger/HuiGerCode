@@ -1,6 +1,8 @@
 # Utils
 
 一些自定义View
+[TOC]
+
 
 
 ## [LikeView(仿Twitter点赞)](/library/src/main/java/com/huige/library/widget/likeview/LikeView.java)
@@ -8,9 +10,10 @@
 - 支持默认选中，和不选中状态
 - 支持设置动画时长、View大小、默认颜色
 
+### 效果
 ![likeView](/img/LikeView.gif)
 
-
+---
 
 ## [TabScrollView(TabLayout指示器可长可短)](/library/src/main/java/com/huige/library/widget/TabLayout)
 - 仿新浪首页TAB
@@ -27,4 +30,8 @@ tabTitleAsLine | dimension | title与指示器间距
 tabTitleLineVisible | enum | 指示器显示状态
 tabTitleLineBgColor | color | 指示器颜色
 
+### 效果
 ![TabScrollView](/img/TabScrollView.gif)
+
+---
+
