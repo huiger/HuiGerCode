@@ -7,3 +7,6 @@
  
 - ## [TabScrollView(TabLayout指示器可长可短)](/library/src/main/java/com/huige/library/widget/TabLayout) 
 
+|----|----|
+    |Name|Format|
+    |tabTitleSize|dimension|
