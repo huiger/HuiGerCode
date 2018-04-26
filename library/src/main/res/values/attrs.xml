@@ -19,4 +19,8 @@
         <attr name="tabTitleLineBgColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="LoadingView">
+        <attr name="loadingViewColor" format="color"/>
+        <attr name="loadingViewDuration" format="integer"/>
+    </declare-styleable>
 </resources>
