@@ -35,7 +35,7 @@ tabTitleLineBgColor | color | 指示器颜色
 
 ## [LoadingView](/library/src/main/java/com/huige/library/widget/loadingView/LoadingView.java)
 
-使用贝塞尔曲线实现加载
+使用贝塞尔曲线实现加载中
 
 ### 效果
 ![LoadingView](/img/LoadingView.gif)
