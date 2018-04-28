@@ -49,7 +49,7 @@ public class HorizontalPageTransformer implements ViewPager.PageTransformer {
             page.setAlpha((position * position * position + 1));
         } else if (position > offscreenPageLimit - 1) {
             page.setAlpha((float) (1 - position + Math.floor(position)));
-        } else {
+        } else { // 禁止状态
             page.setRotation(0);
             page.setAlpha(1.0f);
         }
