@@ -21,7 +21,8 @@ public class ContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_content, container, false);
-        rootView.findViewById(R.id.contentLayout).setBackgroundColor(Utils.getRandomColor());
+//        rootView.findViewById(R.id.contentLayout).setBackgroundColor(Utils.getRandomColor());
+        rootView.findViewById(R.id.contentLayout).setBackgroundColor(Utils.getRandomColorUnAlpha());
         return rootView;
     }
 

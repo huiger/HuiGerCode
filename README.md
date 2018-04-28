@@ -39,3 +39,10 @@ tabTitleLineBgColor | color | 指示器颜色
 
 ### 效果
 ![LoadingView](/img/LoadingView.gif)
+
+## [viewPager的一个小样式](/library/src/main/java/com/huige/library/widget/viewpage/HorizontalPageTransformer.java)
+
+viewPager的一个小样式
+
+### 效果
+![viewPager的一个小样式](/img/page.gif)

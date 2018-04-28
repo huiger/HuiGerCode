@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_to_tabView:
                 intent = new Intent(this, TabViewActivity.class);
                 break;
+            case R.id.tv_to_loadVIew:
+                intent = new Intent(this, LoadingViewActivity.class);
+                break;
+            case R.id.tv_to_page:
+                intent = new Intent(this, PageActivity.class);
+                break;
             default:
 
         }

@@ -19,6 +19,10 @@
         </activity>
         <activity android:name=".TabViewActivity">
         </activity>
+        <activity android:name=".LoadingViewActivity">
+        </activity>
+        <activity android:name=".PageActivity">
+        </activity>
     </application>
 
 </manifest>
