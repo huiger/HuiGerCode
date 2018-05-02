@@ -12,15 +12,29 @@
         <attr name="tabTitleUnSelColor" format="color"/>
         <attr name="tabTitlePaddingLR" format="dimension"/>
         <attr name="tabTitlePaddingAsLine" format="dimension"/>
+        <!--指示器显示状态-->
         <attr name="tabTitleLineVisible" format="enum">
             <enum name="GONE" value="-1"/>
             <enum name="VISIBLE" value="1"/>
         </attr>
+        <!--指示器颜色-->
         <attr name="tabTitleLineBgColor" format="color"/>
     </declare-styleable>
 
+    <!--加载-->
     <declare-styleable name="LoadingView">
+        <!--主题色-->
         <attr name="loadingViewColor" format="color"/>
+        <!--动画时长-->
         <attr name="loadingViewDuration" format="integer"/>
     </declare-styleable>
+
+    <!--流光字-->
+    <declare-styleable name="TextFlickerView">
+        <!--动画时长-->
+        <attr name="animatorDuration" format="integer"/>
+        <!--流光颜色-->
+        <attr name="flickerColor" format="color"/>
+    </declare-styleable>
+
 </resources>

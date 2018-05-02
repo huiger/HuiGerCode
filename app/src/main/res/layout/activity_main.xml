@@ -8,6 +8,13 @@
     android:gravity="center"
     tools:context="com.huige.huigercode.MainActivity">
 
+    <com.huige.library.widget.TextFlicker.TextFlickerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="15sp"
+        android:text="huiGer - Coder"/>
+
 
     <TextView
         android:id="@+id/tv_to_likeView"
