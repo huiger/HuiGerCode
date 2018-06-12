@@ -17,7 +17,7 @@ import com.huige.library.utils.DeviceUtils;
 /**
  * Author : huiGer
  * Time : 2018/6/12 0012 下午 03:53.
- * Desc :
+ * Desc : 个人中心的item
  */
 public class MineItemLayout extends RelativeLayout {
 
