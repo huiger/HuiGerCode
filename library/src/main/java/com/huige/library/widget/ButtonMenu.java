@@ -2,6 +2,7 @@ package com.huige.library.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ public class ButtonMenu extends LinearLayout {
     private int iResid_nomalpic;
     private int iResid_presspic;
     private boolean isAnimation;
+    private int selColor;
+    private int unSelColor;
 
 
     public ButtonMenu(Context context) {
@@ -53,6 +56,10 @@ public class ButtonMenu extends LinearLayout {
         isAnimation = typedArray.getBoolean(R.styleable.ButtonMenu_bottom_isAnimation, false);
         // 设置默认属性
         mTextView.setText(strText);
+        selColor = typedArray.getColor(R.styleable.ButtonMenu_bottom_sel_textColor, Color.BLACK);
+        unSelColor = typedArray.getColor(R.styleable.ButtonMenu_bottom_unSel_textColor, Color.BLACK);
+
+        mTextView.setTextColor(unSelColor);
         mImageView.setImageResource(iResid_nomalpic);
         // 设置图片大小
         float imgSize = typedArray.getDimension(R.styleable.ButtonMenu_bottom_icon_size, 0);
@@ -88,6 +95,7 @@ public class ButtonMenu extends LinearLayout {
         // 切换图片，并且隐藏文字
         mImageView.setImageResource(iResid_presspic);
 //        mTextView.setVisibility(GONE);
+        mTextView.setTextColor(selColor);
 
         if (isAnimation) {
             this.measure(0, 0);
@@ -107,6 +115,7 @@ public class ButtonMenu extends LinearLayout {
         // 切换图片，并且隐藏文字
         mImageView.setImageResource(iResid_nomalpic);
         //bSelect = false;
+        mTextView.setTextColor(unSelColor);
 
         if (isAnimation) {
             // 对切换后的图片进行缩小
