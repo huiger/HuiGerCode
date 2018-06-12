@@ -100,7 +100,7 @@ public class ButtonMenu extends LinearLayout {
         //bSelect = false;
 
         if (isAnimation) {
-            // 对切换后的图片进行放大
+            // 对切换后的图片进行缩小
             ScaleAnimation animation = new ScaleAnimation(1.2f, 1, 1.2f, 1);// 把图片缩小1.2倍
             animation.setFillAfter(true); // 停留在动画的最后一帧
             animation.setDuration(200);
