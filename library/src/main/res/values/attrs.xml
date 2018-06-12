@@ -37,4 +37,21 @@
         <attr name="flickerColor" format="color"/>
     </declare-styleable>
 
+    <!--个人中心的item-->
+    <declare-styleable name="MineItemLayout">
+        <!--左边图标-->
+        <attr name="itemLeftImg" format="integer"/>
+        <!--右边图标-->
+        <attr name="itemRightImg" format="integer"/>
+        <!--文字-->
+        <attr name="itemText" format="string"/>
+        <attr name="itemTextColor" format="color"/>
+        <attr name="itemTextPaddingLeft" format="dimension"/>
+        <!--分割线显示状态-->
+        <attr name="itemLineVisible" format="enum">
+            <enum name="GONE" value="-1"/>
+            <enum name="VISIBLE" value="1"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

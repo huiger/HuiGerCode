@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_to_page:
                 intent = new Intent(this, PageActivity.class);
                 break;
+            case R.id.tv_to_test:
+                intent = new Intent(this, TestActivity.class);
+                break;
             default:
 
         }
