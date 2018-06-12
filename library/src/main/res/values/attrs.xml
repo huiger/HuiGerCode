@@ -54,4 +54,12 @@
         </attr>
     </declare-styleable>
 
+    <!--底部按钮-->
+    <declare-styleable name="ButtonMenu">
+        <attr name="text" format="string"/>
+        <attr name="normalpic" format="reference"/>
+        <attr name="presspic" format="reference"/>
+        <attr name="isAnimation" format="boolean"/>
+    </declare-styleable>
+
 </resources>
