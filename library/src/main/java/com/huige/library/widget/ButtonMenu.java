@@ -54,6 +54,7 @@ public class ButtonMenu extends LinearLayout {
         // 设置默认属性
         mTextView.setText(strText);
         mImageView.setImageResource(iResid_nomalpic);
+        // 设置图片大小
         float imgSize = typedArray.getDimension(R.styleable.ButtonMenu_bottom_icon_size, 0);
         if (imgSize >= 0) {
             ViewGroup.LayoutParams lp = mImageView.getLayoutParams();
