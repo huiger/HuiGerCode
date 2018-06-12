@@ -5,12 +5,14 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huige.library.R;
+import com.huige.library.utils.DeviceUtils;
 
 /**
  * Author : huiGer
@@ -52,6 +54,12 @@ public class ButtonMenu extends LinearLayout {
         // 设置默认属性
         mTextView.setText(strText);
         mImageView.setImageResource(iResid_nomalpic);
+        float imgSize = typedArray.getDimension(R.styleable.ButtonMenu_bottom_icon_size, 0);
+        if (imgSize >= 0) {
+            ViewGroup.LayoutParams lp = mImageView.getLayoutParams();
+            lp.width = DeviceUtils.dp2px(context, imgSize);
+            lp.height = DeviceUtils.dp2px(context, imgSize);
+        }
 
         // 释放资源
         typedArray.recycle();

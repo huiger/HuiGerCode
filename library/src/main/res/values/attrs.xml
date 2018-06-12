@@ -60,6 +60,7 @@
         <attr name="bottom_normal_pic" format="reference"/>
         <attr name="bottom_selected_pic" format="reference"/>
         <attr name="bottom_isAnimation" format="boolean"/>
+        <attr name="bottom_icon_size" format="dimension"/>
     </declare-styleable>
 
 </resources>
