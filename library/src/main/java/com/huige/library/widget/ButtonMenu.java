@@ -15,7 +15,7 @@ import com.huige.library.R;
 /**
  * Author : huiGer
  * Time : 2018/6/12 0012 下午 05:20.
- * Desc :
+ * Desc : 底部按钮
  */
 public class ButtonMenu extends LinearLayout {
     TextView mTextView;
