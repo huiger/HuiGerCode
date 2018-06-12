@@ -107,7 +107,7 @@ public class ButtonMenu extends LinearLayout {
             mImageView.startAnimation(animation);// 播放动画
         }
 
-        
+
 //        // 将按钮下面的文字显示
 //        mTextView.setVisibility(VISIBLE);
     }
