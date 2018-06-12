@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.huige.huigercode.TestActivity">
 
     <com.huige.library.widget.MineItemLayout
@@ -12,4 +13,11 @@
         android:layout_height="wrap_content"
         app:itemLeftImg="@mipmap/download"
         app:itemText="测试"/>
+
+    <com.huige.library.widget.ButtonMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bottom_text="测试"
+        app:bottom_normal_pic="@mipmap/setting"></com.huige.library.widget.ButtonMenu>
+
 </LinearLayout>

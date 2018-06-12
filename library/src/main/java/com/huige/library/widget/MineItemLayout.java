@@ -48,7 +48,7 @@ public class MineItemLayout extends RelativeLayout {
         tvContent.setText(TextUtils.isEmpty(contentStr) ? "设置" : contentStr);
         tvContent.setTextColor(typedArray.getColor(R.styleable.MineItemLayout_itemTextColor, Color.BLACK));
         float paddingLeft = typedArray.getDimension(R.styleable.MineItemLayout_itemTextPaddingLeft, 0);
-        if (paddingLeft >= 0) {
+        if (paddingLeft > 0) {
             tvContent.setPadding(DeviceUtils.dp2px(context, paddingLeft), 0, 0, 0);
         }
         line.setVisibility(typedArray.getInt(R.styleable.MineItemLayout_itemLineVisible, 1) == 1 ? VISIBLE : GONE);
