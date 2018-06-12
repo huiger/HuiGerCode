@@ -43,12 +43,12 @@ public class ButtonMenu extends LinearLayout {
         // 得到XML中设置的自定义属性，并且设置到自定义控件中
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ButtonMenu);
         // 得到设置的字符串
-        String strText = typedArray.getString(R.styleable.ButtonMenu_text);
+        String strText = typedArray.getString(R.styleable.ButtonMenu_bottom_text);
         // 得到没有点击时的图片ID
-        iResid_nomalpic = typedArray.getResourceId(R.styleable.ButtonMenu_normalpic, -1);
+        iResid_nomalpic = typedArray.getResourceId(R.styleable.ButtonMenu_bottom_normal_pic, -1);
         // 得到点击后的图片ID
-        iResid_presspic = typedArray.getResourceId(R.styleable.ButtonMenu_presspic, -1);
-        isAnimation = typedArray.getBoolean(R.styleable.ButtonMenu_isAnimation, false);
+        iResid_presspic = typedArray.getResourceId(R.styleable.ButtonMenu_bottom_selected_pic, -1);
+        isAnimation = typedArray.getBoolean(R.styleable.ButtonMenu_bottom_isAnimation, false);
         // 设置默认属性
         mTextView.setText(strText);
         mImageView.setImageResource(iResid_nomalpic);

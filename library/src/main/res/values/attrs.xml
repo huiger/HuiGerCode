@@ -56,10 +56,10 @@
 
     <!--底部按钮-->
     <declare-styleable name="ButtonMenu">
-        <attr name="text" format="string"/>
-        <attr name="normalpic" format="reference"/>
-        <attr name="presspic" format="reference"/>
-        <attr name="isAnimation" format="boolean"/>
+        <attr name="bottom_text" format="string"/>
+        <attr name="bottom_normal_pic" format="reference"/>
+        <attr name="bottom_selected_pic" format="reference"/>
+        <attr name="bottom_isAnimation" format="boolean"/>
     </declare-styleable>
 
 </resources>
