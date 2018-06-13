@@ -17,7 +17,7 @@ import com.huige.library.R;
 
 
 /**
- * Created by <huiGer> on 2018/4/3 17:27.
+ * Created by huiGer on 2018/4/3 17:27.
  */
 
 public class LoadingView extends View {

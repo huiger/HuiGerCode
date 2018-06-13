@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by <lzh> on 2017/8/30.
+ * Created by lzh on 2017/8/30.
  */
 
 public class TabScrollView extends HorizontalScrollView {

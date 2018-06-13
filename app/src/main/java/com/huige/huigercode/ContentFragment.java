@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.huige.library.utils.Utils;
 
 /**
- * Created by <lzh> on 2017/8/31.
+ * Created by lzh on 2017/8/31.
  */
 
 public class ContentFragment extends Fragment {

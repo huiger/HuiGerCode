@@ -6,7 +6,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 /**
- * Created by <lzh> on 2017/8/31.
+ * Created by lzh on 2017/8/31.
  */
 
 public class Utils {
@@ -14,7 +14,7 @@ public class Utils {
     /**
      * 有透明度
      *
-     * @return
+     * @return 随机颜色
      */
     public static int getRandomColor() {
         return Color.HSVToColor(150, new float[]{new SecureRandom().nextInt(359), 1, 1});
@@ -22,7 +22,7 @@ public class Utils {
 
     /**
      * 没有透明度
-     * @return
+     * @return 随机颜色
      */
     public static int getRandomColorUnAlpha() {
         Random random = new Random();

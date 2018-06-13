@@ -14,7 +14,7 @@
 
 
 
-## [TabScrollView(TabLayout指示器可长可短)](/library/src/main/java/com/huige/library/widget/TabLayout)
+## [TabScrollView(TabLayout指示器可长可短)](/doc/tablayout)
 - 仿新浪首页TAB
 - 使用方便，和官方TabLayout相似，一行代码实现效果
 

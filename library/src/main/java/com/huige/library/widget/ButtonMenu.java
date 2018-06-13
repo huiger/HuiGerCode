@@ -76,7 +76,7 @@ public class ButtonMenu extends LinearLayout {
     /**
      * 查找自定义菜单中的子控件
      *
-     * @param view
+     * @param view rootView
      */
     protected void findViews(View view) {
         mTextView = (TextView) view.findViewById(R.id.tvMenu);

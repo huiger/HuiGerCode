@@ -13,7 +13,7 @@ import android.view.View;
 
 /**
  * RecyclerView横线滑动，item局左显示
- * Created by <lzh> on 2017/8/29.
+ * Created by lzh on 2017/8/29.
  */
 
 public class MyLinearSnapHelper extends SnapHelper {

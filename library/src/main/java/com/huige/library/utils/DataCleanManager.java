@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 /**
  * 本应用数据清除管理器
  *
- * Created by <lzh> on 2017/1/6.
+ * Created by lzh on 2017/1/6.
  */
 
 public class DataCleanManager {
@@ -17,8 +17,7 @@ public class DataCleanManager {
     /**
      * 获得缓存大小
      * @param context
-     * @return
-     * @throws Exception
+     * @return 缓存大小
      */
     public static String getTotalCacheSize(Context context) {
         long cacheSize = getFolderSize(context.getCacheDir());
@@ -31,7 +30,7 @@ public class DataCleanManager {
 
     /**
      * 清除所有缓存
-     * @param context
+     * @param context 上下文
      */
     public static void clearAllCache(Context context) {
         deleteDir(context.getCacheDir());
@@ -43,7 +42,7 @@ public class DataCleanManager {
     /**
      * 删除指定目录
      * @param dir   路径
-     * @return
+     * @return 是否删除成功
      */
     private static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
@@ -82,8 +81,8 @@ public class DataCleanManager {
     /**
      * 格式化单位
      *
-     * @param size
-     * @return
+     * @param size 大小
+     * @return 格式化后的单位
      */
     private static String getFormatSize(double size) {
         double kiloByte = size / 1024;

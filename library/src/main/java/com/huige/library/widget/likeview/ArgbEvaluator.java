@@ -4,7 +4,7 @@ import android.animation.TypeEvaluator;
 
 /**
  * 颜色渐变动画
- * Created by <lzh> on 2017/8/1.
+ * Created by lzh on 2017/8/1.
  */
 
 public class ArgbEvaluator implements TypeEvaluator{

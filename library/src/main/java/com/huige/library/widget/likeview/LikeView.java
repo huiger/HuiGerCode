@@ -18,7 +18,7 @@ import com.huige.library.R;
 
 /**
  * 点赞
- * Created by <lzh> on 2017/8/1.
+ * Created by lzh on 2017/8/1.
  */
 
 public class LikeView extends View {

@@ -14,7 +14,7 @@ import android.view.View;
 import com.huige.library.utils.DeviceUtils;
 
 /**
- * Created by <lzh> on 2017/9/1.
+ * Created by lzh on 2017/9/1.
  */
 
 public class TabLineView extends View{

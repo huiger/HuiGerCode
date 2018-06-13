@@ -5,7 +5,7 @@ import android.util.Log;
 
 /**
  * 表情符
- * Created by <lzh> on 2017/3/17.
+ * Created by lzh on 2017/3/17.
  */
 
 public class EmojiUtils {

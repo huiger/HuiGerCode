@@ -8,7 +8,7 @@ import android.view.Display;
 import android.view.WindowManager;
 
 /**
- * Created by <lzh> on 2017/8/30.
+ * Created by lzh on 2017/8/30.
  */
 
 public class DeviceUtils {
@@ -16,8 +16,8 @@ public class DeviceUtils {
     /**
      * 获取屏幕宽和高
      *
-     * @param ctx
-     * @return
+     * @param ctx 上下文
+     * @return  屏幕宽和高
      */
     public static int[] getScreenWH(Context ctx) {
         int[] wh = new int[3];
@@ -38,8 +38,8 @@ public class DeviceUtils {
     /**
      * 手机屏幕宽度
      *
-     * @param ctx
-     * @return
+     * @param ctx 上下文
+     * @return 屏幕宽
      */
     public static int getWindowWidth(Context ctx) {
         Display display = ((WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
@@ -51,8 +51,8 @@ public class DeviceUtils {
     /**
      * 手机屏幕高度
      *
-     * @param ctx
-     * @return
+     * @param ctx 上下文
+     * @return 屏幕高
      */
     public static int getWindowHeight(Context ctx) {
         Display display = ((WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
@@ -64,9 +64,9 @@ public class DeviceUtils {
     /**
      * dp2px
      *
-     * @param ctx
-     * @param dp
-     * @return
+     * @param ctx 上下文
+     * @param dp dp
+     * @return px
      */
     public static int dp2px(Context ctx, float dp) {
         float scale = ctx.getResources().getDisplayMetrics().density;
@@ -76,9 +76,9 @@ public class DeviceUtils {
     /**
      * px2dp
      *
-     * @param ctx
-     * @param px
-     * @return
+     * @param ctx 上下文
+     * @param px px
+     * @return dp
      */
     public static int px2dp(Context ctx, float px) {
         float scale = ctx.getResources().getDisplayMetrics().density;
@@ -88,9 +88,9 @@ public class DeviceUtils {
     /**
      * sp2dp
      *
-     * @param ctx
-     * @param sp
-     * @return
+     * @param ctx 上下文
+     * @param sp sp
+     * @return dp
      */
     public static int sp2px(Context ctx, float sp) {
         float scale = ctx.getResources().getDisplayMetrics().scaledDensity;

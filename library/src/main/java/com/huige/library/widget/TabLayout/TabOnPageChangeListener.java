@@ -9,7 +9,7 @@ import com.huige.library.utils.DeviceUtils;
 import java.util.List;
 
 /**
- * Created by <lzh> on 2017/8/31.
+ * Created by lzh on 2017/8/31.
  */
 
 public class TabOnPageChangeListener implements ViewPager.OnPageChangeListener {
