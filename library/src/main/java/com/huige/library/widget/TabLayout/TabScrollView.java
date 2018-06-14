@@ -165,7 +165,7 @@ public class TabScrollView extends HorizontalScrollView {
     /**
      * set default TextView Size
      *
-     * @param defaultIndex
+     * @param defaultIndex TextView Size
      */
     public void setDefaultIndex(int defaultIndex) {
         for (int i = 0; i < textViews.size(); i++) {

@@ -100,6 +100,7 @@ public class DeviceUtils {
     /**
      * 返回当前程序版本名
      *
+     * @param ctx 上下文
      * @return 版本号
      */
     public static String getAppVersionName(Context ctx) {

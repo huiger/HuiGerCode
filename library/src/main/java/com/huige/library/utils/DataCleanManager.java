@@ -16,7 +16,7 @@ public class DataCleanManager {
 
     /**
      * 获得缓存大小
-     * @param context
+     * @param context 上下文
      * @return 缓存大小
      */
     public static String getTotalCacheSize(Context context) {

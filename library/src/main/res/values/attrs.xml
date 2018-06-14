@@ -38,17 +38,31 @@
     </declare-styleable>
 
     <!--个人中心的item-->
-    <declare-styleable name="MineItemLayout">
+    <declare-styleable name="ItemLayout">
         <!--左边图标-->
-        <attr name="itemLeftImg" format="integer"/>
-        <!--右边图标-->
-        <attr name="itemRightImg" format="integer"/>
+        <attr name="itemLeftImg" format="reference"/>
+        <attr name="itemLeftImgSize" format="dimension"/>
         <!--文字-->
         <attr name="itemText" format="string"/>
+        <attr name="itemTextGravity" format="enum">
+            <enum name="left" value="-1"/>
+            <enum name="center" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
         <attr name="itemTextColor" format="color"/>
         <attr name="itemTextPaddingLeft" format="dimension"/>
         <!--分割线显示状态-->
         <attr name="itemLineVisible" format="enum">
+            <enum name="GONE" value="-1"/>
+            <enum name="VISIBLE" value="1"/>
+        </attr>
+        <!--右边文字-->
+        <attr name="itemRightText" format="string"/>
+        <attr name="itemRightTextColor" format="color"/>
+        <!--右边图标-->
+        <attr name="itemRightImg" format="reference"/>
+        <attr name="itemRightImgSize" format="dimension"/>
+        <attr name="itemRightImgVisible" format="enum">
             <enum name="GONE" value="-1"/>
             <enum name="VISIBLE" value="1"/>
         </attr>

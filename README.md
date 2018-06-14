@@ -2,6 +2,8 @@
 
 一些自定义View
 
+[![Version Code](https://img.shields.io/badge/Version%20Code-1.0.5-brightgreen.svg)](https://jcenter.bintray.com/com/huiger/HGUtils)
+
 
 
 ## [LikeView(仿Twitter点赞)](/library/src/main/java/com/huige/library/widget/likeview/LikeView.java)

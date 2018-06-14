@@ -11,6 +11,11 @@ import android.util.Log;
 public class EmojiUtils {
 
 
+    /**
+     *
+     * @param str 字符串
+     * @return 带emj的字符串
+     */
     public static String getEmoji(String str) {
 
         Log.d("msg", "EmojiUtils -> getEmoji: " + "name - " + str);
@@ -52,6 +57,8 @@ public class EmojiUtils {
 
     /**
      * 字符串转换unicode
+     * @param string 字符串转换unicode
+     * @return 字符串转换unicode
      */
     public static String string2Unicode(String string) {
 
@@ -71,6 +78,8 @@ public class EmojiUtils {
 
     /**
      * unicode 转字符串
+     * @param unicode 转字符串
+     * @return unicode 转字符串
      */
     public static String unicode2String(String unicode) {
 
