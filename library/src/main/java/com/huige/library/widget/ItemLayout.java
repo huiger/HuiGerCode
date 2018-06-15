@@ -48,7 +48,7 @@ public class ItemLayout extends RelativeLayout {
             ivLeft.setVisibility(VISIBLE);
             ivLeft.setImageResource(leftImg);
             int leftImgSize = (int) typedArray.getDimension(R.styleable.ItemLayout_itemLeftImgSize, -1);
-            if(leftImgSize != -1){
+            if (leftImgSize != -1) {
                 ViewGroup.LayoutParams leftImgLp = ivLeft.getLayoutParams();
                 leftImgLp.width = leftImgSize;
                 leftImgLp.height = leftImgSize;
@@ -56,7 +56,7 @@ public class ItemLayout extends RelativeLayout {
             ivLeft.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener != null){
+                    if (listener != null) {
                         listener.onLeftClick();
                     }
                 }
@@ -65,13 +65,13 @@ public class ItemLayout extends RelativeLayout {
 
         // 中间文字
         String contentStr = typedArray.getString(R.styleable.ItemLayout_itemText);
-        if(!TextUtils.isEmpty(contentStr)) {
+        if (!TextUtils.isEmpty(contentStr)) {
             int paddingLeft = 0;
 
             tvContent.setText(contentStr);
             // 字体大小
             int contentTextSize = typedArray.getDimensionPixelSize(R.styleable.ItemLayout_itemTextSize, -1);
-            if(contentTextSize != -1) {
+            if (contentTextSize != -1) {
                 tvContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentTextSize);
             }
             tvContent.setTextColor(typedArray.getColor(R.styleable.ItemLayout_itemTextColor, Color.BLACK));
@@ -79,7 +79,7 @@ public class ItemLayout extends RelativeLayout {
             // 字体居中样式
             if (textGravity == -1) {
                 tvContent.setGravity(Gravity.LEFT);
-                if(ivLeft.getVisibility() == VISIBLE) { // 在居左是才生效
+                if (ivLeft.getVisibility() == VISIBLE) { // 在居左是才生效
                     paddingLeft = DeviceUtils.dp2px(context, 50);
                 }
             } else if (textGravity == 0) {
@@ -100,7 +100,7 @@ public class ItemLayout extends RelativeLayout {
             ivRight.setVisibility(VISIBLE);
             ivRight.setImageResource(rightImg);
             int rightImgSize = (int) typedArray.getDimension(R.styleable.ItemLayout_itemRightImgSize, -1);
-            if(rightImgSize != -1){
+            if (rightImgSize != -1) {
                 ViewGroup.LayoutParams rightImgLp = ivRight.getLayoutParams();
                 rightImgLp.width = rightImgSize;
                 rightImgLp.height = rightImgSize;
@@ -116,7 +116,7 @@ public class ItemLayout extends RelativeLayout {
             tvRight.setText(rightStr);
             // 字体大小
             int rightTextSize = typedArray.getDimensionPixelSize(R.styleable.ItemLayout_itemRightTextSize, -1);
-            if(rightTextSize != -1) {
+            if (rightTextSize != -1) {
                 tvRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightTextSize);
             }
             tvRight.setTextColor(typedArray.getColor(R.styleable.ItemLayout_itemRightTextColor, Color.BLACK));
@@ -125,7 +125,7 @@ public class ItemLayout extends RelativeLayout {
         findViewById(R.id.right_layout).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listener !=null){
+                if (listener != null) {
                     listener.onRightClick();
                 }
             }
@@ -133,6 +133,52 @@ public class ItemLayout extends RelativeLayout {
 
         line.setVisibility(typedArray.getInt(R.styleable.ItemLayout_itemLineVisible, 1) == 1 ? VISIBLE : GONE);
         typedArray.recycle();
+    }
+
+    /**
+     * 设置中间文字
+     *
+     * @param charSequence 文字
+     */
+    public void setContent(CharSequence charSequence) {
+        tvContent.setText(charSequence);
+    }
+
+    /**
+     * @return 中间textView
+     */
+    public TextView getContentTextView() {
+        return tvContent;
+    }
+
+    /**
+     * 设置右边文字
+     *
+     * @param charSequence 文字
+     */
+    public void setRightText(CharSequence charSequence) {
+        tvContent.setText(charSequence);
+    }
+
+    /**
+     * @return 右边textView
+     */
+    public TextView getRightTextView() {
+        return tvRight;
+    }
+
+    /**
+     * @return 左边图标
+     */
+    public ImageView getLeftImageView(){
+        return ivLeft;
+    }
+
+    /**
+     * @return 右边图标
+     */
+    public ImageView getRightImageView(){
+        return ivRight;
     }
 
     private void findView() {

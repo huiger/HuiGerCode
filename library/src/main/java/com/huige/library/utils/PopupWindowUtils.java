@@ -5,12 +5,15 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
+
+import com.huige.library.OnViewResultListener;
 
 /**
  * Author : huiGer
@@ -33,7 +36,7 @@ public class PopupWindowUtils extends PopupWindow {
         setContentView(rootView);
     }
 
-    public PopupWindowUtils setStyle(int style){
+    public PopupWindowUtils setStyle(int style) {
         setAnimationStyle(style);
         return this;
     }
@@ -44,12 +47,26 @@ public class PopupWindowUtils extends PopupWindow {
         return this;
     }
 
-    public PopupWindowUtils setOnClickListenerByViewId(@IdRes int id, View.OnClickListener listener) {
-        if (listener != null) {
-            rootView.findViewById(id).setOnClickListener(listener);
-        }
-        dismiss();
+    public PopupWindowUtils setOnClickListenerByViewId(@IdRes int id, final onPopupWindClickListener listener) {
+        rootView.findViewById(id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null) {
+                    listener.onClick(view);
+                }
+                dismiss();
+            }
+        });
         return this;
+    }
+
+    public PopupWindowUtils setViewStyle(@IdRes int idRes, @NonNull OnViewResultListener listener) {
+        listener.getView(getView(idRes));
+        return this;
+    }
+
+    private  <T extends View> T getView(@IdRes int idRes){
+        return (T) rootView.findViewById(idRes);
     }
 
 
@@ -69,5 +86,9 @@ public class PopupWindowUtils extends PopupWindow {
                 activity.getWindow().setAttributes(params);
             }
         });
+    }
+
+    public interface onPopupWindClickListener {
+        void onClick(View view);
     }
 }

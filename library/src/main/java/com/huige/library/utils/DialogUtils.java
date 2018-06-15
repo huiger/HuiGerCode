@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.huige.library.OnViewResultListener;
 import com.huige.library.R;
 
 import java.lang.annotation.Retention;
@@ -110,10 +111,6 @@ public class DialogUtils {
     @IntDef({VISIBLE, INVISIBLE, GONE})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Visibility {
-    }
-
-    public interface OnViewResultListener {
-        void getView(View view);
     }
 
     public interface OnAddViewListener {
