@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemText="测试"
+        app:itemLeftImg="@mipmap/left_arrow"
         app:itemTextPaddingLeft="10dp"
         app:itemTextGravity="left"
         app:itemTextSize="10sp"

@@ -67,10 +67,7 @@ public class ItemLayout extends RelativeLayout {
         String contentStr = typedArray.getString(R.styleable.ItemLayout_itemText);
         if(!TextUtils.isEmpty(contentStr)) {
             int paddingLeft = 0;
-            if(ivLeft.getVisibility() == VISIBLE) {
-//                tvContent.setPadding(DeviceUtils.dp2px(context, 50), 0,0,0);
-                paddingLeft = DeviceUtils.dp2px(context, 50);
-            }
+
             tvContent.setText(contentStr);
             // 字体大小
             int contentTextSize = typedArray.getDimensionPixelSize(R.styleable.ItemLayout_itemTextSize, -1);
@@ -82,6 +79,9 @@ public class ItemLayout extends RelativeLayout {
             // 字体居中样式
             if (textGravity == -1) {
                 tvContent.setGravity(Gravity.LEFT);
+                if(ivLeft.getVisibility() == VISIBLE) { // 在居左是才生效
+                    paddingLeft = DeviceUtils.dp2px(context, 50);
+                }
             } else if (textGravity == 0) {
                 tvContent.setGravity(Gravity.CENTER);
             } else {
