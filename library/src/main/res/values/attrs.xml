@@ -44,6 +44,7 @@
         <attr name="itemLeftImgSize" format="dimension"/>
         <!--文字-->
         <attr name="itemText" format="string"/>
+        <attr name="itemTextSize" format="dimension"/>
         <attr name="itemTextGravity" format="enum">
             <enum name="left" value="-1"/>
             <enum name="center" value="0"/>
@@ -59,6 +60,7 @@
         <!--右边文字-->
         <attr name="itemRightText" format="string"/>
         <attr name="itemRightTextColor" format="color"/>
+        <attr name="itemRightTextSize" format="dimension"/>
         <!--右边图标-->
         <attr name="itemRightImg" format="reference"/>
         <attr name="itemRightImgSize" format="dimension"/>

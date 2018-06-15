@@ -11,16 +11,21 @@
 
 
 
-
     <com.huige.library.widget.ItemLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemLeftImg="@mipmap/left_arrow"
         app:itemText="测试"
+        app:itemTextPaddingLeft="10dp"
         app:itemTextGravity="left"
+        app:itemTextSize="10sp"
         app:itemRightImgVisible="GONE"/>
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textSize="10sp"
+        android:text="测试"/>
 
 </LinearLayout>

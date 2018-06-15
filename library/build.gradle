@@ -38,7 +38,7 @@ publish {
     userOrg = 'huiger'//bintray.com用户名
     groupId = 'com.huiger'//jcenter上的路径
     artifactId = 'HGUtils'//项目名称
-    publishVersion = '1.0.5'//版本号
+    publishVersion = '1.0.6.1'//版本号
     desc = 'HGUtils '//描述，不重要
     website = 'https://github.com/huiger/HuiGerCode'//网站
 }

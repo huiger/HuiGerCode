@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,27 +63,38 @@ public class ItemLayout extends RelativeLayout {
             });
         }
 
-        tvContent.setText(typedArray.getString(R.styleable.ItemLayout_itemText));
-        tvContent.setTextColor(typedArray.getColor(R.styleable.ItemLayout_itemTextColor, Color.BLACK));
-        int textGravity = typedArray.getInt(R.styleable.ItemLayout_itemTextGravity, -1);
-        // 字体居中样式
-        if (textGravity == -1) {
-            tvContent.setGravity(Gravity.LEFT);
+        // 中间文字
+        String contentStr = typedArray.getString(R.styleable.ItemLayout_itemText);
+        if(!TextUtils.isEmpty(contentStr)) {
+            int paddingLeft = 0;
             if(ivLeft.getVisibility() == VISIBLE) {
-                tvContent.setPadding(DeviceUtils.dp2px(context, 50), 0,0,0);
+//                tvContent.setPadding(DeviceUtils.dp2px(context, 50), 0,0,0);
+                paddingLeft = DeviceUtils.dp2px(context, 50);
             }
-        } else if (textGravity == 0) {
-            tvContent.setGravity(Gravity.CENTER);
-        } else {
-            tvContent.setGravity(Gravity.RIGHT);
+            tvContent.setText(contentStr);
+            // 字体大小
+            int contentTextSize = typedArray.getDimensionPixelSize(R.styleable.ItemLayout_itemTextSize, -1);
+            if(contentTextSize != -1) {
+                tvContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentTextSize);
+            }
+            tvContent.setTextColor(typedArray.getColor(R.styleable.ItemLayout_itemTextColor, Color.BLACK));
+            int textGravity = typedArray.getInt(R.styleable.ItemLayout_itemTextGravity, -1);
+            // 字体居中样式
+            if (textGravity == -1) {
+                tvContent.setGravity(Gravity.LEFT);
+            } else if (textGravity == 0) {
+                tvContent.setGravity(Gravity.CENTER);
+            } else {
+                tvContent.setGravity(Gravity.RIGHT);
+            }
+
+            paddingLeft += (int) typedArray.getDimension(R.styleable.ItemLayout_itemTextPaddingLeft, 0);
+            if (paddingLeft > 0) {
+                tvContent.setPadding(paddingLeft, 0, 0, 0);
+            }
         }
 
-        float paddingLeft = typedArray.getDimension(R.styleable.ItemLayout_itemTextPaddingLeft, 0);
-        if (paddingLeft > 0) {
-            tvContent.setPadding(DeviceUtils.dp2px(context, paddingLeft), 0, 0, 0);
-        }
-
-
+        // 右边图片
         if (typedArray.getInt(R.styleable.ItemLayout_itemRightImgVisible, 1) == 1) {
             int rightImg = typedArray.getResourceId(R.styleable.ItemLayout_itemRightImg, R.mipmap.right_arrow);
             ivRight.setVisibility(VISIBLE);
@@ -97,9 +109,16 @@ public class ItemLayout extends RelativeLayout {
             ivRight.setVisibility(GONE);
         }
 
+        // 右边文字
         String rightStr = typedArray.getString(R.styleable.ItemLayout_itemRightText);
         if (!TextUtils.isEmpty(rightStr)) {
             tvRight.setVisibility(VISIBLE);
+            tvRight.setText(rightStr);
+            // 字体大小
+            int rightTextSize = typedArray.getDimensionPixelSize(R.styleable.ItemLayout_itemRightTextSize, -1);
+            if(rightTextSize != -1) {
+                tvRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightTextSize);
+            }
             tvRight.setTextColor(typedArray.getColor(R.styleable.ItemLayout_itemRightTextColor, Color.BLACK));
         }
 
