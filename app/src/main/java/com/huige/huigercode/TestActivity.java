@@ -2,9 +2,10 @@ package com.huige.huigercode;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.View;
 
-import com.huige.library.widget.ItemLayout;
+import com.huige.library.widget.LimitScrollView;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -13,18 +14,21 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        ((ItemLayout)findViewById(R.id.title)).setOnItemClickListener(new ItemLayout.OnItemClickListener() {
+        LimitScrollView limitScrollView = (LimitScrollView) findViewById(R.id.limitView);
+        limitScrollView.setAdapter(new LimitScrollView.LimitScrollViewAdapter() {
             @Override
-            public void onLeftClick() {
-                super.onLeftClick();
-                Toast.makeText(TestActivity.this, "left", Toast.LENGTH_SHORT).show();
+            public int getCount() {
+                return 3;
             }
 
             @Override
-            public void onRightClick() {
-                super.onRightClick();
-                Toast.makeText(TestActivity.this, "right", Toast.LENGTH_SHORT).show();
+            public View getView(int position) {
+
+                View view = LayoutInflater.from(TestActivity.this).inflate(R.layout.limit_scrollview, null);
+
+                return view;
             }
         });
+        limitScrollView.startScroll();
     }
 }

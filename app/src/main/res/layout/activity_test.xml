@@ -9,24 +9,9 @@
     tools:context="com.huige.huigercode.TestActivity">
 
 
-
-
-    <com.huige.library.widget.ItemLayout
-        android:id="@+id/title"
+    <com.huige.library.widget.LimitScrollView
+        android:id="@+id/limitView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemText="测试"
-        app:itemLeftImg="@mipmap/left_arrow"
-        app:itemTextPaddingLeft="10dp"
-        app:itemTextGravity="left"
-        app:itemTextSize="10sp"
-        app:itemRightImgVisible="GONE"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:textSize="10sp"
-        android:text="测试"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

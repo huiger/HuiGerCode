@@ -1,4 +1,4 @@
-package com.huige.library;
+package com.huige.library.interfaces;
 
 import android.view.View;
 

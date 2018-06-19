@@ -13,7 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
-import com.huige.library.OnViewResultListener;
+import com.huige.library.interfaces.OnViewResultListener;
 
 /**
  * Author : huiGer

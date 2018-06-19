@@ -118,7 +118,7 @@ public class StatusBarUtil {
      * 设置状态栏黑色字体图标，
      * 适配4.4以上版本MIUIV、Flyme和6.0以上版本其他Android
      *
-     * @param activity
+     * @param activity activity
      * @param dark     是否把状态栏字体及图标颜色设置为深色
      * @return 1:MIUUI 2:Flyme 3:android6.0
      */
@@ -239,6 +239,8 @@ public class StatusBarUtil {
 
     /**
      * 清除MIUI或flyme或6.0以上版本状态栏黑色字体，即白色字体
+     * @param activity activity
+     * @param type type
      */
     public static void StatusBarDarkMode(Activity activity, int type) {
         if (type == 1) {

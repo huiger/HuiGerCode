@@ -81,4 +81,14 @@
         <attr name="bottom_unSel_textColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="LimitScrollView">
+        <!--显示数量-->
+        <attr name="limitCount" format="integer"/>
+        <!--滚动速度-->
+        <attr name="limitDurationTime" format="integer"/>
+        <!--停留时间-->
+        <attr name="limitPeriodTime" format="integer"/>
+    </declare-styleable>
+    
+    
 </resources>

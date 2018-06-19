@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.huige.library.OnViewResultListener;
+import com.huige.library.interfaces.OnViewResultListener;
 import com.huige.library.R;
 
 import java.lang.annotation.Retention;
