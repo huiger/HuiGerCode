@@ -35,7 +35,7 @@ dependencies {
 //    testCompile 'junit:junit:4.12'
 //    compile 'com.android.support:appcompat-v7:24.2.1'
 //    compile 'com.android.support:recyclerview-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
+    provided 'com.android.support:design:24.2.1'
 }
 
 publish {
@@ -43,7 +43,7 @@ publish {
     userOrg = 'huiger'//bintray.com用户名
     groupId = 'com.huiger'//jcenter上的路径
     artifactId = 'HGUtils'//项目名称
-    publishVersion = '1.0.8'//版本号
+    publishVersion = '1.1.0'//版本号
     desc = 'HGUtils '//描述，不重要
     website = 'https://github.com/huiger/HuiGerCode'//网站
 }

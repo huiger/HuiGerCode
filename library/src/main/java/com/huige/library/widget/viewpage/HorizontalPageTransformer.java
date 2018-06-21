@@ -21,12 +21,8 @@ public class HorizontalPageTransformer implements ViewPager.PageTransformer {
 
     public HorizontalPageTransformer(ViewPager viewPager) {
         offscreenPageLimit = viewPager.getOffscreenPageLimit();
-        Log.d("msg", "HorizontalPageTransformer -> HorizontalPageTransformer: offscreenPageLimit=" + offscreenPageLimit);
         int pageWidth = viewPager.getWidth();
         horizontalOffsetBase = (pageWidth - pageWidth * CENTER_PAGE_SCALE) / 2 / offscreenPageLimit + DeviceUtils.dp2px(viewPager.getContext(), 15);
-        Log.d("msg", "HorizontalPageTransformer -> transformPage: pageWidth=" + pageWidth);
-        Log.d("msg", "HorizontalPageTransformer -> transformPage: horizontalOffsetBase=" + horizontalOffsetBase);
-
     }
 
     @Override

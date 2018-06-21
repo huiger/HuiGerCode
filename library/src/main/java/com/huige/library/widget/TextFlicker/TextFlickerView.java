@@ -22,7 +22,7 @@ import com.huige.library.R;
  * *     *  *           Time : 2018/5/2 11:27
  * * * * *  *   * *     Email: zhihuiemail@163.com
  * *     *  *     *     blog : huiGer.top
- * *     *  * * * *     Desc :
+ * *     *  * * * *     Desc : 流光字
  ****************************************************************/
 public class TextFlickerView extends AppCompatTextView {
 
