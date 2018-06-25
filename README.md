@@ -2,7 +2,7 @@
 
 一些自定义View
 
-[![Version Code](https://img.shields.io/badge/Version%20Code-1.1.0-brightgreen.svg)](https://jcenter.bintray.com/com/huiger/HGUtils)
+[![Version Code](https://img.shields.io/badge/Version%20Code-1.2.0-brightgreen.svg)](https://jcenter.bintray.com/com/huiger/HGUtils)
 
 
 
@@ -57,6 +57,7 @@ TextFlickerView | 流光字 | ...
 LimitScrollView | 滚动广告 | ...
 VerticalViewPager | 垂直滚动的ViewPager | ...
 ItemLayout | 个人中心/标题栏的item | ...
+CircleImageView | 圆形图片 | ...
 
 
 
