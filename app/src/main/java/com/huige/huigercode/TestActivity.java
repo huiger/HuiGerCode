@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.huige.library.utils.log.LogLevel;
+import com.huige.library.utils.log.LogUtils;
 import com.huige.library.widget.LimitScrollView;
 
 public class TestActivity extends AppCompatActivity {
@@ -30,5 +32,9 @@ public class TestActivity extends AppCompatActivity {
             }
         });
         limitScrollView.startScroll();
+
+        LogUtils.d("你好啊");
+        LogUtils.init().setLogLevel(LogLevel.NONE);
+        LogUtils.d("我不好");
     }
 }

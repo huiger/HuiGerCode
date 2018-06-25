@@ -81,6 +81,7 @@
         <attr name="bottom_unSel_textColor" format="color"/>
     </declare-styleable>
 
+    <!--向上滚动的广告位-->
     <declare-styleable name="LimitScrollView">
         <!--显示数量-->
         <attr name="limitCount" format="integer"/>
@@ -89,6 +90,13 @@
         <!--停留时间-->
         <attr name="limitPeriodTime" format="integer"/>
     </declare-styleable>
-    
+
+    <!--圆形图片-->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
     
 </resources>
