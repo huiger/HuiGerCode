@@ -1,14 +1,8 @@
 package com.huige.library.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.net.ConnectivityManager;
 
 import java.security.SecureRandom;
 import java.util.Random;
@@ -37,5 +31,12 @@ public class Utils {
         return Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
 
+    /**
+     * 检查是否有可用网络
+     */
+    public static boolean isNetworkConnected(Context ctx) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo() != null;
+    }
 
 }
