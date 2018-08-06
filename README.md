@@ -19,4 +19,4 @@ viewPager的一个小样式 | ![viewPager的一个小样式](/img/page.gif)
 纯数字/纯字母键盘 | | 
 
 
-## [详细请前往wiki](./wiki)
+## [详细请前往wiki](https://github.com/huiger/HuiGerCode/wiki)
