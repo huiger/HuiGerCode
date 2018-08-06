@@ -25,6 +25,10 @@ public class PopupWindowUtils extends PopupWindow {
     private WindowManager.LayoutParams params;
 
     public PopupWindowUtils(Context context, int layoutId) {
+        this(context, LayoutInflater.from(context).inflate(layoutId, null, false));
+    }
+
+    public PopupWindowUtils(Context context, View rootView) {
         super(context);
         setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -32,7 +36,7 @@ public class PopupWindowUtils extends PopupWindow {
         setFocusable(true);
         setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        rootView = LayoutInflater.from(context).inflate(layoutId, null, false);
+        this.rootView = rootView;
         setContentView(rootView);
     }
 
@@ -65,7 +69,7 @@ public class PopupWindowUtils extends PopupWindow {
         return this;
     }
 
-    private  <T extends View> T getView(@IdRes int idRes){
+    private <T extends View> T getView(@IdRes int idRes) {
         return (T) rootView.findViewById(idRes);
     }
 

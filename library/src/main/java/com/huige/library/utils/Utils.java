@@ -33,6 +33,8 @@ public class Utils {
 
     /**
      * 检查是否有可用网络
+     * @param ctx 上下文
+     * @return 手否有网
      */
     public static boolean isNetworkConnected(Context ctx) {
         ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);

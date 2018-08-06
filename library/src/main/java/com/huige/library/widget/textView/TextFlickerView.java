@@ -1,4 +1,4 @@
-package com.huige.library.widget.TextFlicker;
+package com.huige.library.widget.textView;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

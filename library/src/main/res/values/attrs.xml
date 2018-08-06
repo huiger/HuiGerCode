@@ -98,5 +98,11 @@
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_fill_color" format="color" />
     </declare-styleable>
-    
+
+    <!--跳动的数字-->
+    <declare-styleable name="JumpNumView">
+        <attr name="jnv_num" format="float"/>
+        <attr name="jnv_duration" format="integer"/>
+        <attr name="Jnv_placeNum" format="integer"/>
+    </declare-styleable>
 </resources>

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.huige.huigercode"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".App"
+        tools:replace="android:icon, android:label,android:theme"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -26,6 +28,16 @@
         </activity>
         <activity android:name=".TestActivity">
         </activity>
+        <activity android:name=".TestKeyBoardActivity">
+        </activity>
+
+        <!-- baidu sdk START -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="aO2Tauipc7qYuYKAxMDA4s8udXBn5riv">
+        </meta-data>
+        <!-- baidu sdk END -->
+
     </application>
 
 </manifest>
