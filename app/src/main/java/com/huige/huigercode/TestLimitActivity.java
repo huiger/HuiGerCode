@@ -9,7 +9,12 @@ import com.huige.library.utils.log.LogLevel;
 import com.huige.library.utils.log.LogUtils;
 import com.huige.library.widget.LimitScrollView;
 
-public class TestActivity extends AppCompatActivity {
+/**
+ * Author : huiGer
+ * Time   : 2018/8/6 0006 下午 05:36.
+ * Desc   : 测试滚动广告
+ */
+public class TestLimitActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public View getView(int position) {
 
-                View view = LayoutInflater.from(TestActivity.this).inflate(R.layout.limit_scrollview, null);
+                View view = LayoutInflater.from(TestLimitActivity.this).inflate(R.layout.limit_scrollview, null);
 
                 return view;
             }

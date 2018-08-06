@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, PageActivity.class);
                 break;
             case R.id.tv_to_test:
-                intent = new Intent(this, TestActivity.class);
+                intent = new Intent(this, TestLimitActivity.class);
                 break;
             case R.id.tv_to_keyboard:
                 intent = new Intent(this, TestKeyBoardActivity.class);

@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".PageActivity">
         </activity>
-        <activity android:name=".TestActivity">
+        <activity android:name=".TestLimitActivity">
         </activity>
         <activity android:name=".TestKeyBoardActivity">
         </activity>
