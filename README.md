@@ -17,6 +17,7 @@ TabScrollView(TabLayout指示器可长可短) | ![TabScrollView](/img/TabScrollV
 LoadingView | ![LoadingView](/img/LoadingView.gif) |
 viewPager的一个小样式 | ![viewPager的一个小样式](/img/page.gif)
 流光字 | ![](/img/textFlicker.gif)
+上下滚动广告位 | ![](/img/ads.gif)
 纯数字/纯字母键盘 | ![](/img/keyboard.png)|
 
 
