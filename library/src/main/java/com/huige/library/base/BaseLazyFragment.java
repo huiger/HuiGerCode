@@ -27,10 +27,16 @@ public abstract class BaseLazyFragment extends Fragment {
      */
     private boolean isVisibleToUser = false;
 
+    /**
+     * rootView
+     */
+    private View rootView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(setLayoutResId(), container, false);
+        rootView =inflater.inflate(setLayoutResId(), container, false);
+        return rootView;
     }
 
     @Override

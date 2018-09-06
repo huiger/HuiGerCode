@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:visibility="gone"
+        android:maxLength="10"
+        android:text="提示"/>
+
+    <View style="@style/lineStyle"/>
+
+    <FrameLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:minHeight="100dp">
+
+        <EditText
+            android:id="@+id/et_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="请输入"
+            android:textSize="12sp"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edit_shape"/>
+
+        <TextView
+            android:id="@+id/tv_dialog_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您有一条消息"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <View style="@style/lineStyle"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLength="5"
+            android:text="取消"/>
+
+        <View android:layout_width="0.7dp"
+            android:layout_height="match_parent"
+            android:background="#dadada"/>
+
+        <Button
+            android:id="@+id/btn_dialog_submit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLength="5"
+            android:text="确定"/>
+
+    </LinearLayout>
+
+</LinearLayout>

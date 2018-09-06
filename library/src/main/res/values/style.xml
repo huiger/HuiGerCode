@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--虚线-->
+    <style name="lineDashStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layerType">software</item>
+        <item name="android:background">@drawable/shape_line_dash</item>
+    </style>
+
+    <!--分割线-->
+    <style name="lineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.7dp</item>
+        <item name="android:background">#DADADA</item>
+    </style>
+
+    <style name="CommonDialogStyle" parent="android:Theme.Holo.Light.Dialog">
+        <!--背景模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--流式布局-->
+    <declare-styleable name="FlowLayout">
+        <attr name="fl_gravity">
+            <enum name="LEFT" value="-1"/>
+            <enum name="CONTENT" value="0"/>
+            <enum name="RIGHT" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
