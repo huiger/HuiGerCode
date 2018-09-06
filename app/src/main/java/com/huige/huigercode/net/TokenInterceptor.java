@@ -2,11 +2,6 @@ package com.huige.huigercode.net;
 
 import android.util.Log;
 
-import com.fengdi.zhaobei.bean.UserBean;
-import com.fengdi.zhaobei.config.Constants;
-import com.fengdi.zhaobei.config.ConstantsUrl;
-import com.fengdi.zhaobei.module.mine.ui.LoginActivity;
-import com.fengdi.zhaobei.utils.ActivityUtils;
 import com.huige.library.utils.SharedPreferencesUtils;
 
 import org.json.JSONObject;
@@ -31,8 +26,6 @@ import okhttp3.ResponseBody;
 import okio.Buffer;
 import okio.BufferedSource;
 import retrofit2.Retrofit;
-import retrofit2.http.Body;
-import retrofit2.http.POST;
 
 /**
  * Author : huiGer
@@ -104,7 +97,8 @@ public class TokenInterceptor implements Interceptor {
 //                        @POST(ConstantsUrl.APP_MOBLIE_LOGIN)
 //                        Call<BaseResponse<UserBean>> mobileLogin(@Body HashMap<String, String> params);
 
-                        if (execute != null && execute.getStatus() == 1) {
+//                        if (execute != null && execute.getStatus() == 1) {
+                        if (execute != null ) {
 
                             // 重新组装
                             String urlStr = request.url().url().toString();
@@ -124,13 +118,14 @@ public class TokenInterceptor implements Interceptor {
                                     }
                                     // 替换token
                                     if (param[0].equals("token")) {
-                                        String token = execute.getData().getToken();
+//                                        String token = execute.getData().getToken();
+                                        String token = "新的token";
                                         Log.d("msg", "TokenInterceptor -> intercept: " + "GET请求 - token失效, 正在自动登录...");
                                         Log.d("msg", "TokenInterceptor -> intercept: 旧token--> " + param[1]);
                                         Log.d("msg", "TokenInterceptor -> intercept: 新token--> " + token);
 
                                         param_map.put(param[0], token);
-                                        SharedPreferencesUtils.put(Constants.USER_TOKEN, token);
+                                        SharedPreferencesUtils.put("存起来", token);
                                     } else {
                                         param_map.put(param[0], param[1]);
                                     }
@@ -151,7 +146,8 @@ public class TokenInterceptor implements Interceptor {
                                     for (int i = 0; i < formBody.size(); i++) {
                                         // 替换token
                                         if (formBody.name(i).equals("token")) {
-                                            String token = execute.getData().getToken();
+//                                            String token = execute.getData().getToken();
+                                            String token = "新的token";
                                             Log.d("msg", "TokenInterceptor -> intercept: " + "POST请求 - token失效, 正在自动登录...");
                                             Log.d("msg", "TokenInterceptor -> intercept: 旧token--> " + formBody.name(i));
                                             Log.d("msg", "TokenInterceptor -> intercept: 新token--> " + token);
@@ -210,7 +206,7 @@ public class TokenInterceptor implements Interceptor {
 
     //要求用户直接登录
     private void GotoLoginActivity() {
-        ActivityUtils.getInstance().jumpActivity(LoginActivity.class);
+//        ActivityUtils.getInstance().jumpActivity(LoginActivity.class);
     }
 
     private boolean bodyEncoded(Headers headers) {
