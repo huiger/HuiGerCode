@@ -3,7 +3,10 @@ package com.huige.huigercode;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+
+import com.huige.library.utils.CommonDialog;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +17,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        CommonDialog.getInstance()
+                .init(this)
+                .setTitle("测试")
+                .addContentView(LayoutInflater.from(this).inflate(R.layout.test_dialog_layout, null))
+                .setSubmitListener(new CommonDialog.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                })
+                .setCancelable(false)
+                .show();
 
     }
 

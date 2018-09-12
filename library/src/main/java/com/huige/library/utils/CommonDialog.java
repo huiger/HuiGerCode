@@ -1,6 +1,7 @@
 package com.huige.library.utils;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.huige.library.R;
@@ -66,11 +68,20 @@ public class CommonDialog {
         return mCommonDialog;
     }
 
+    /**
+     * @param context 上下文
+     * @return CommonDialog
+     */
     public CommonDialog init(Context context) {
         init(context, DialogType.content);
         return this;
     }
 
+    /**
+     * @param context 上下文
+     * @param type    区分是文本还是输入框
+     * @return CommonDialog
+     */
     public CommonDialog init(Context context, @DialogType int type) {
         this.mContext = context;
         this.mType = type;
@@ -95,8 +106,8 @@ public class CommonDialog {
     /**
      * 设置显示状态
      *
-     * @param resId
-     * @param visible
+     * @param resId   id
+     * @param visible 显示状态
      * @return CommonDialog
      */
     public CommonDialog setVisible(@IdRes int resId, boolean visible) {
@@ -108,22 +119,40 @@ public class CommonDialog {
      * 查找控件
      *
      * @param resId id
-     * @param <T> view
-     * @return CommonDialog
+     * @return 查找到的view
      */
     public <T extends View> T getView(@IdRes int resId) {
-        return (T)rootView.findViewById(resId);
+        return (T) rootView.findViewById(resId);
+    }
+
+    /**
+     * 设置外部是否可点击
+     *
+     * @param flag 外部是否可点击
+     * @return CommonDialog
+     */
+    public CommonDialog setCancelable(boolean flag) {
+        dialog.setCancelable(flag);
+        return this;
     }
 
     /**
      * 确认
      *
+     * @param listener 确定按钮监听
+     * @return CommonDialog
      */
     public CommonDialog setSubmitListener(OnClickListener listener) {
         this.submitClick = listener;
         return this;
     }
 
+    /**
+     * 确认
+     *
+     * @param listener 提交输入的内容
+     * @return CommonDialog
+     */
     public CommonDialog setSubmitListener(OnEditSubmitListener listener) {
         this.editSubmitClick = listener;
         return this;
@@ -132,6 +161,8 @@ public class CommonDialog {
     /**
      * 取消
      *
+     * @param listener 取消
+     * @return CommonDialog
      */
     public CommonDialog setCancelListener(OnClickListener listener) {
         this.cancelClick = listener;
@@ -142,6 +173,7 @@ public class CommonDialog {
      * 设置主题色
      *
      * @param color 颜色
+     * @return CommonDialog
      */
     public CommonDialog setThemeColor(@ColorInt int color) {
         ((TextView) getView(R.id.tv_dialog_title)).setTextColor(color);
@@ -154,6 +186,8 @@ public class CommonDialog {
     /**
      * 设置标题
      *
+     * @param resId id
+     * @return CommonDialog
      */
     public CommonDialog setTitle(@StringRes int resId) {
         setTitle(mContext.getResources().getString(resId));
@@ -163,6 +197,8 @@ public class CommonDialog {
     /**
      * 设置标题
      *
+     * @param str 标题内容
+     * @return CommonDialog
      */
     public CommonDialog setTitle(CharSequence str) {
         TextView tv = getView(R.id.tv_dialog_title);
@@ -172,8 +208,10 @@ public class CommonDialog {
     }
 
     /**
-     * 设置标题
+     * 设置内容
      *
+     * @param resId 内容资源id
+     * @return CommonDialog
      */
     public CommonDialog setMessage(@StringRes int resId) {
         setTitle(mContext.getResources().getString(resId));
@@ -181,7 +219,10 @@ public class CommonDialog {
     }
 
     /**
-     * 设置标题
+     * 设置内容
+     *
+     * @param str 内容
+     * @return CommonDialog
      */
     public CommonDialog setMessage(CharSequence str) {
         ((TextView) getView(R.id.tv_dialog_msg)).setText(str);
@@ -190,10 +231,34 @@ public class CommonDialog {
 
     /**
      * 根据id返回该view
+     *
+     * @param id       id
+     * @param callBack 返回就该view
+     * @return CommonDialog
      */
     public CommonDialog setViewStyle(@IdRes int id, CustomViewCallBack callBack) {
         callBack.onCallBack(rootView.findViewById(id));
         return this;
+    }
+
+
+    /**
+     * 添加内容布局
+     *
+     * @param v 添加的布局
+     */
+    public CommonDialog addContentView(View v) {
+        FrameLayout contentView = (FrameLayout) rootView.findViewById(R.id.layout_content);
+        contentView.removeAllViews();
+        contentView.addView(v);
+        return this;
+    }
+
+    /**
+     * @return dialog
+     */
+    public Dialog getDialog() {
+        return dialog;
     }
 
     /**

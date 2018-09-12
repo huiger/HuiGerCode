@@ -157,7 +157,7 @@ public class ItemLayout extends RelativeLayout {
      * @param charSequence 文字
      */
     public void setRightText(CharSequence charSequence) {
-        tvContent.setText(charSequence);
+        tvRight.setText(charSequence);
     }
 
     /**
