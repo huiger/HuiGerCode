@@ -16,7 +16,7 @@ public class KeyboardUtils {
      *
      * SHOW_FORCED 强制显示
      * @param ctx 上下文
-     * @param v 输入框
+     * @param v view
      */
     public static void showKeyBoard(Context ctx, View v){
         InputMethodManager imm = (InputMethodManager) ctx.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -35,7 +35,7 @@ public class KeyboardUtils {
     /**
      * 隐藏软键盘
      * @param ctx 上下文
-     * @param v 输入框
+     * @param v view
      */
     public static void hideKeyBoard(Context ctx, View v){
         InputMethodManager imm = (InputMethodManager) ctx.getSystemService(Context.INPUT_METHOD_SERVICE);
