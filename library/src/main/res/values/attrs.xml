@@ -105,4 +105,13 @@
         <attr name="jnv_duration" format="integer"/>
         <attr name="Jnv_placeNum" format="integer"/>
     </declare-styleable>
+
+    <!--流式布局-->
+    <declare-styleable name="FlowLayout">
+        <attr name="fl_gravity">
+            <enum name="LEFT" value="-1"/>
+            <enum name="CONTENT" value="0"/>
+            <enum name="RIGHT" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>

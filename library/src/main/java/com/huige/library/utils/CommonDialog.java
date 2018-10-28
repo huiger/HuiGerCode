@@ -118,6 +118,7 @@ public class CommonDialog {
     /**
      * 查找控件
      *
+     * @param <T> 泛型
      * @param resId id
      * @return 查找到的view
      */
@@ -246,6 +247,7 @@ public class CommonDialog {
      * 添加内容布局
      *
      * @param v 添加的布局
+     * @return dialog
      */
     public CommonDialog addContentView(View v) {
         FrameLayout contentView = (FrameLayout) rootView.findViewById(R.id.layout_content);

@@ -24,13 +24,11 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
-    <!--流式布局-->
-    <declare-styleable name="FlowLayout">
-        <attr name="fl_gravity">
-            <enum name="LEFT" value="-1"/>
-            <enum name="CONTENT" value="0"/>
-            <enum name="RIGHT" value="1"/>
-        </attr>
-    </declare-styleable>
+    <!--底部弹起的动画-->
+    <style name="popupWindowAsBottom" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_bottom_out</item>
+    </style>
+
 
 </resources>

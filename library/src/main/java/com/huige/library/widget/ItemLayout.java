@@ -112,8 +112,7 @@ public class ItemLayout extends RelativeLayout {
         // 右边文字
         String rightStr = typedArray.getString(R.styleable.ItemLayout_itemRightText);
         if (!TextUtils.isEmpty(rightStr)) {
-            tvRight.setVisibility(VISIBLE);
-            tvRight.setText(rightStr);
+            setRightText(rightStr);
             // 字体大小
             int rightTextSize = typedArray.getDimensionPixelSize(R.styleable.ItemLayout_itemRightTextSize, -1);
             if (rightTextSize != -1) {
@@ -157,6 +156,7 @@ public class ItemLayout extends RelativeLayout {
      * @param charSequence 文字
      */
     public void setRightText(CharSequence charSequence) {
+        tvRight.setVisibility(VISIBLE);
         tvRight.setText(charSequence);
     }
 

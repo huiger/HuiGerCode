@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 27
     buildToolsVersion "24.0.3"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -37,7 +37,7 @@ dependencies {
 //    testCompile 'junit:junit:4.12'
 //    compile 'com.android.support:appcompat-v7:24.2.1'
 //    compile 'com.android.support:recyclerview-v7:24.2.1'
-    provided 'com.android.support:design:24.2.1'
+    provided 'com.android.support:design:27.1.1'
 }
 
 publish {
@@ -45,7 +45,7 @@ publish {
     userOrg = 'huiger'//bintray.com用户名
     groupId = 'com.huiger'//jcenter上的路径
     artifactId = 'HGUtils'//项目名称
-    publishVersion = '1.2.5'//版本号
+    publishVersion = '1.2.6.1'//版本号
     desc = 'HGUtils '//描述，不重要
     website = 'https://github.com/huiger/HuiGerCode'//网站
 }
