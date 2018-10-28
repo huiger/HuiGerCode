@@ -168,7 +168,7 @@ public class ItemLayout extends RelativeLayout {
     }
 
     /**
-     * @return 左边图标
+     * @return 左边图标 
      */
     public ImageView getLeftImageView(){
         return ivLeft;
