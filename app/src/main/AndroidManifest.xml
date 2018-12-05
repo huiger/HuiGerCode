@@ -9,8 +9,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        tools:replace="android:icon, android:label,android:theme"
-        android:theme="@style/Theme.Design.Light.NoActionBar">
+        android:theme="@style/Theme.Design.Light.NoActionBar"
+        tools:replace="android:icon, android:label,android:theme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -38,6 +38,8 @@
         </meta-data>
         <!-- baidu sdk END -->
 
+        <activity android:name=".CustomViewActivity">
+        </activity>
     </application>
 
 </manifest>

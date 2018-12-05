@@ -114,4 +114,27 @@
             <enum name="RIGHT" value="1"/>
         </attr>
     </declare-styleable>
+
+    <!--ToolBar-->
+    <declare-styleable name="MyToolBar">
+        <attr name="title" format="string"/>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="rightContent" format="string"/>
+        <attr name="rightTextSize" format="dimension"/>
+        <attr name="android:background"/>
+        <attr name="leftIconVisible" format="enum">
+            <enum name="gone" value="0"/>
+            <enum name="visible" value="1"/>
+        </attr>
+        <attr name="rightIcon" format="reference"/>
+        <attr name="statusBarVisible" format="enum">
+            <enum name="gone" value="0"/>
+            <enum name="visible" value="1"/>
+        </attr>
+        <attr name="lineVisible" format="enum">
+            <enum name="gone" value="0"/>
+            <enum name="visible" value="1"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

@@ -3,9 +3,10 @@ package com.huige.library.utils;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
-import android.os.Build;
-import android.os.Looper;
 import android.widget.Toast;
+
+import com.huige.library.HGUtils;
+import com.huige.library.HGUtilsApp;
 
 import java.security.SecureRandom;
 import java.util.Random;
@@ -40,65 +41,13 @@ public class CommonUtils {
     /**
      * 检查是否有可用网络
      *
-     * @param ctx 上下文
-     * @return 手否有网
+     * @return 是否有网
      */
-    public static boolean isNetworkConnected(Context ctx) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+    public static boolean isNetworkConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) HGUtilsApp.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo() != null;
     }
 
-    /***
-     * 弹出提示
-     * @param ctx 上下文
-     * @param resId string配置的资源id
-     */
-    public static void toast(Context ctx, int resId) {
-        toast(ctx, ctx.getText(resId));
-    }
-
-    /***
-     * 弹出提示
-     *
-     * 解决子线程不加Loop, toast会奔溃, 而主线程加了, 也会奔溃
-     *
-     * @param ctx 上下文
-     * @param message 提示信息文言
-     */
-    public static void toast(Context ctx, CharSequence message) {
-        if (Thread.currentThread().getName().equals("main")) {
-            showToast(ctx, message);
-        } else {
-
-            Looper.prepare();
-            showToast(ctx, message);
-            Looper.loop();
-        }
-    }
-
-    /**
-     * 解决子线程和主线程
-     *
-     * @param ctx     上下文
-     * @param message msg
-     */
-    private static void showToast(Context ctx, CharSequence message) {
-        if (mToast == null) {
-            mToast = Toast.makeText(ctx, message, Toast.LENGTH_SHORT);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            mToast.cancel();
-            mToast = Toast.makeText(ctx, message, Toast.LENGTH_SHORT);
-        } else {
-            mToast.setDuration(Toast.LENGTH_SHORT);
-            mToast.setText(message);
-        }
-//		toast.setGravity(Gravity.CENTER, 0, 0);//设置显示的位置
-//	    LinearLayout toastView = (LinearLayout) toast.getView(); //带图片效果
-//	    ImageView imageCodeProject = new ImageView(getApp().getApplicationContext());
-//	    imageCodeProject.setImageResource(R.drawable.f047);
-//	    toastView.addView(imageCodeProject, 0);
-        mToast.show();
-    }
 
 
 

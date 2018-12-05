@@ -30,7 +30,7 @@ public abstract class BaseLazyFragment extends Fragment {
     /**
      * rootView
      */
-    private View rootView;
+    public View rootView;
 
     @Nullable
     @Override

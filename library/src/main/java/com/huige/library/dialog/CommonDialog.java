@@ -1,4 +1,4 @@
-package com.huige.library.utils;
+package com.huige.library.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

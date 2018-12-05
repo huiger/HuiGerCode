@@ -1,4 +1,4 @@
-package com.huige.library.utils;
+package com.huige.library.popupwind;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
+import com.huige.library.R;
 import com.huige.library.interfaces.OnViewResultListener;
 
 /**
@@ -35,6 +36,7 @@ public class PopupWindowUtils extends PopupWindow {
         setOutsideTouchable(true);
         setFocusable(true);
         setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        setStyle(R.style.popupWindowAsBottom);
 
         this.rootView = rootView;
         setContentView(rootView);
