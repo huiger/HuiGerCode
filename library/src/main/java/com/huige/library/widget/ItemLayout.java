@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -27,6 +28,9 @@ public class ItemLayout extends RelativeLayout {
     private ImageView ivLeft, ivRight;
     private TextView tvContent, tvRight;
     private View line;
+    private OnItemClickListener listener;
+    private OnSingleItemClickListener singleListener;
+    private View mRightLayout;
 
     public ItemLayout(Context context) {
         this(context, null);
@@ -121,7 +125,8 @@ public class ItemLayout extends RelativeLayout {
             tvRight.setTextColor(typedArray.getColor(R.styleable.ItemLayout_itemRightTextColor, Color.BLACK));
         }
 
-        findViewById(R.id.right_layout).setOnClickListener(new OnClickListener() {
+        mRightLayout = findViewById(R.id.right_layout);
+        mRightLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (listener != null) {
@@ -132,6 +137,42 @@ public class ItemLayout extends RelativeLayout {
 
         line.setVisibility(typedArray.getInt(R.styleable.ItemLayout_itemLineVisible, 1) == 1 ? VISIBLE : GONE);
         typedArray.recycle();
+    }
+
+    private void findView() {
+        ivLeft = (ImageView) findViewById(R.id.iv_left);
+        ivRight = (ImageView) findViewById(R.id.iv_right);
+        tvContent = (TextView) findViewById(R.id.tv_content);
+        tvRight = (TextView) findViewById(R.id.tv_right);
+        line = findViewById(R.id.line);
+    }
+
+    /**
+     * 设置右边文字
+     *
+     * @param charSequence 文字
+     */
+    public void setRightText(CharSequence charSequence) {
+        tvRight.setVisibility(VISIBLE);
+        tvRight.setText(charSequence);
+    }
+    float x=0, y=0;
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            x = event.getX();
+            y = event.getY();
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            if(Math.abs(event.getX() - x) < 50 && Math.abs(event.getY() - y) < 50) {
+                if(singleListener != null) {
+                    singleListener.onItemClick(this);
+                    return true;
+                }
+            }
+        }
+
+        return super.onTouchEvent(event);
     }
 
     /**
@@ -151,16 +192,6 @@ public class ItemLayout extends RelativeLayout {
     }
 
     /**
-     * 设置右边文字
-     *
-     * @param charSequence 文字
-     */
-    public void setRightText(CharSequence charSequence) {
-        tvRight.setVisibility(VISIBLE);
-        tvRight.setText(charSequence);
-    }
-
-    /**
      * @return 右边textView
      */
     public TextView getRightTextView() {
@@ -170,29 +201,28 @@ public class ItemLayout extends RelativeLayout {
     /**
      * @return 左边图标
      */
-    public ImageView getLeftImageView(){
+    public ImageView getLeftImageView() {
         return ivLeft;
     }
 
     /**
      * @return 右边图标
      */
-    public ImageView getRightImageView(){
+    public ImageView getRightImageView() {
         return ivRight;
     }
 
-    private void findView() {
-        ivLeft = (ImageView) findViewById(R.id.iv_left);
-        ivRight = (ImageView) findViewById(R.id.iv_right);
-        tvContent = (TextView) findViewById(R.id.tv_content);
-        tvRight = (TextView) findViewById(R.id.tv_right);
-        line = findViewById(R.id.line);
-    }
-
-    private OnItemClickListener listener;
-
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnItemClickListener(OnSingleItemClickListener listener) {
+        this.singleListener = listener;
+        mRightLayout.setClickable(false);
+    }
+
+    public interface OnSingleItemClickListener {
+        void onItemClick(View v);
     }
 
     public static abstract class OnItemClickListener {

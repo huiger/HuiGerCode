@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="45dp">
+                android:layout_height="45dp"
+                xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/iv_left"
@@ -21,6 +22,7 @@
         android:layout_centerInParent="true"
         android:gravity="left"
         android:lines="1"
+        tools:text="测试"
         android:ellipsize="end"
         android:textColor="#000"/>
 

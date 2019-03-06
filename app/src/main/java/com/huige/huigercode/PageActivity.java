@@ -5,7 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 
+import com.huige.library.widget.ItemLayout;
 import com.huige.library.widget.viewpage.HorizontalPageTransformer;
 
 import java.util.ArrayList;
@@ -40,7 +43,26 @@ public class PageActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
         viewPager.setPageTransformer(true, new HorizontalPageTransformer(viewPager));
 
+        ItemLayout itemLayout = (ItemLayout)findViewById(R.id.itemLayout);
+        itemLayout.setOnItemClickListener(new ItemLayout.OnItemClickListener() {
+            @Override
+            public void onRightClick() {
+                Log.d("msg", "PageActivity -> onRightClick: " + "");
+            }
+        });
 
+        itemLayout.setOnItemClickListener(new ItemLayout.OnSingleItemClickListener() {
+            @Override
+            public void onItemClick(View v) {
+                Log.d("msg", "PageActivity -> onItemClick: " + "");
+            }
+        });
 
+        itemLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("msg", "PageActivity -> onClick: " + "");
+            }
+        });
     }
 }
