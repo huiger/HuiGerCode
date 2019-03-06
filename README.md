@@ -3,7 +3,7 @@
 
 一些自定义View以及工具类
 
-[![Version Code](https://img.shields.io/badge/Version%20Code-1.2.2-brightgreen.svg)](https://jcenter.bintray.com/com/huiger/HGUtils)
+[![Version Code](https://img.shields.io/badge/Version%20Code-1.2.8-brightgreen.svg)](https://jcenter.bintray.com/com/huiger/HGUtils)
 
 > compile 'com.huiger:HGUtils:version code'
 
