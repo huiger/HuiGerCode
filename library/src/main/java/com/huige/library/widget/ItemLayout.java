@@ -163,6 +163,7 @@ public class ItemLayout extends RelativeLayout {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             x = event.getX();
             y = event.getY();
+            return true;
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             if(Math.abs(event.getX() - x) < 50 && Math.abs(event.getY() - y) < 50) {
                 if(singleListener != null) {

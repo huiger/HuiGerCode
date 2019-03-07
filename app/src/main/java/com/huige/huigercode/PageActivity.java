@@ -44,12 +44,12 @@ public class PageActivity extends AppCompatActivity {
         viewPager.setPageTransformer(true, new HorizontalPageTransformer(viewPager));
 
         ItemLayout itemLayout = (ItemLayout)findViewById(R.id.itemLayout);
-        itemLayout.setOnItemClickListener(new ItemLayout.OnItemClickListener() {
-            @Override
-            public void onRightClick() {
-                Log.d("msg", "PageActivity -> onRightClick: " + "");
-            }
-        });
+//        itemLayout.setOnItemClickListener(new ItemLayout.OnItemClickListener() {
+//            @Override
+//            public void onRightClick() {
+//                Log.d("msg", "PageActivity -> onRightClick: " + "");
+//            }
+//        });
 
         itemLayout.setOnItemClickListener(new ItemLayout.OnSingleItemClickListener() {
             @Override
@@ -58,11 +58,11 @@ public class PageActivity extends AppCompatActivity {
             }
         });
 
-        itemLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("msg", "PageActivity -> onClick: " + "");
-            }
-        });
+//        itemLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d("msg", "PageActivity -> onClick: " + "");
+//            }
+//        });
     }
 }
